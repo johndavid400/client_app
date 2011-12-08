@@ -4,4 +4,8 @@ class HomeController < ApplicationController
     @applications = Application.all
   end
 
+  def finished
+    @application = Application.last
+  end
+
 end
