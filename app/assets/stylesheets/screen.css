@@ -1,6 +1,4 @@
 html {
-  background-color:#d3d3d3;
-  color: #444;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,8 +9,7 @@ body {
   height:auto; 
   width:auto; 
   font: 62.5% ff-dagny-web-pro,sans-serif; 
-  background:url(../images/body-bg.jpg) repeat-x; 
-  background-color:#fff; 
+  background: #15334D;
   margin: 0 auto;
 }
 
@@ -1034,10 +1031,11 @@ a.content_link {
 
 /*----------------------------------------------------------footer----------------------------------*/
 #footer {
+  position: absolute;
   width:100%; 
   background-color: #d3d3d3;
   color: #666;
-  margin-top: 20px;
+  margin-top: 20%;
   border-top: 4px solid #bbb;
 }
 #footer-content-wrap {
