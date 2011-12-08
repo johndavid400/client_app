@@ -1,5 +1,7 @@
 ClientApp::Application.routes.draw do
-  resources :applications
 
-  root :to => 'applications#index'
+  get "home/index"
+  resources :applications
+  root :to => 'home#index'
+
 end
