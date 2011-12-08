@@ -12,4 +12,7 @@ class CreateApplications < ActiveRecord::Migration
       t.timestamps
     end
   end
+  def self.up
+    drop_table :applications
+  end
 end
