@@ -1,8 +1,8 @@
-class ApplicationsController < ApplicationController
+class ClientApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
+    @applications = ClientApplication.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
   # GET /applications/1
   # GET /applications/1.json
   def show
-    @application = Application.find(params[:id])
+    @application = ClientApplication.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class ApplicationsController < ApplicationController
   # GET /applications/new
   # GET /applications/new.json
   def new
-    @application = Application.new
+    @application = ClientApplication.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/1/edit
   def edit
-    @application = Application.find(params[:id])
+    @application = ClientApplication.find(params[:id])
   end
 
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(params[:application])
+    @application = ClientApplication.new(params[:application])
 
     respond_to do |format|
       if @application.save
@@ -56,11 +56,11 @@ class ApplicationsController < ApplicationController
   # PUT /applications/1
   # PUT /applications/1.json
   def update
-    @application = Application.find(params[:id])
+    @application = ClientApplication.find(params[:id])
 
     respond_to do |format|
       if @application.update_attributes(params[:application])
-        format.html { redirect_to @application, notice: 'Application was successfully updated.' }
+        format.html { redirect_to @application, notice: 'ClientApplication was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -72,11 +72,11 @@ class ApplicationsController < ApplicationController
   # DELETE /applications/1
   # DELETE /applications/1.json
   def destroy
-    @application = Application.find(params[:id])
+    @application = ClientApplication.find(params[:id])
     @application.destroy
 
     respond_to do |format|
-      format.html { redirect_to applications_url }
+      format.html { redirect_to client_applications_url }
       format.json { head :ok }
     end
   end

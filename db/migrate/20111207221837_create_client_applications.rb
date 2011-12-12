@@ -20,7 +20,7 @@ class CreateClientApplications < ActiveRecord::Migration
       t.timestamps
     end
   end
-  def self.up
+  def self.down
     drop_table :client_applications
   end
 end

@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
 
   def index
-    @applications = Application.all
+    @applications = ClientApplication.all
   end
 
   def finished
-    @application = Application.last
+    @application = ClientApplication.last
   end
 
 end

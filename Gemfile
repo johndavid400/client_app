@@ -8,6 +8,8 @@ gem 'execjs'
 gem 'haml'
 gem 'haml-rails', :group => :development
 gem 'simple_form'
+gem 'state_machine'
+gem 'paperclip'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
