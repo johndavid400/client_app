@@ -28,7 +28,7 @@ class ClientApplicationsController < ApplicationController
   def create
     @application = ClientApplication.new(params[:application])
     if @application.save
-      Client.initial_email(@application).deliver
+      Client.client_email(@application).deliver
     end
     redirect_to home_finished_path
   end
