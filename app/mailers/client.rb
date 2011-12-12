@@ -1,4 +1,4 @@
-class Initial < ActionMailer::Base
+class Client < ActionMailer::Base
   default from: "client_application@isotope11.com"
 
   def initial_email(application)
