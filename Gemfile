@@ -6,6 +6,11 @@ gem 'sqlite3'
 
 gem 'therubyracer'
 gem 'execjs'
+gem 'haml'
+gem 'haml-rails', :group => :development
+gem 'simple_form'
+gem 'state_machine'
+gem 'paperclip'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -27,4 +32,10 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'database_cleaner'
+  gem 'rails3-generators' #mainly for factory_girl & simple_form at this point
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
 end

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ClientApp</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>ClientApp</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="main-wrap">
+      <div class="header-internal">
+        <div class="title-bar-internal">
+        </div>
+      </div>
+      <div class="wrapper">
+        <%= yield %>
+        <br class="clear">
+      </div>
+    </div>
+    <%= render :partial => "shared/footer" %>
+  </body>
 </html>

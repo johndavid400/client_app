@@ -11,6 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20111207221837) do
+
+  create_table "client_applications", :force => true do |t|
+    t.string   "business_name"
+    t.string   "taxpayer_id_number"
+    t.string   "business_address"
+    t.string   "business_website"
+    t.string   "billing_address"
+    t.string   "parent_company"
+    t.string   "dba_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "contact_method"
+    t.string   "phone_number"
+    t.integer  "years_in_business"
+    t.integer  "number_of_employees"
+    t.string   "zip"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,0 +1,80 @@
+.wrapper {
+  background: #D3D3D3; 
+  position: relative;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-bottom: 50px;
+  border: #015E93 5px solid;
+}
+
+.title {
+  background: white;
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#new_app {
+  background: white; 
+  position: relative;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  border: #015E93 1px solid;
+}
+
+#new_app:hover {
+  background: #015E93; 
+  position: relative;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  border: #015E93 1px solid;
+}
+
+.content {
+  width: 700px;  
+}
+
+.content h4 {
+  text-align: center;
+  font-size: 16px;
+  margin-left: 100px;
+  color: #015E93;
+}
+
+.content h5 {
+  text-align: center;
+  font-size: 14px;
+  margin-left: -100px;
+  margin-top: 50px;
+}
+
+.content ul {
+  margin-left: 200px;
+}
+
+#form_left {
+  position: relative;
+  margin-left: 0px;
+}
+
+#form_right {
+  position: relative;
+  margin-left: 400px;
+  margin-top: -552px;
+}
+
+#submit {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 400px;
+}

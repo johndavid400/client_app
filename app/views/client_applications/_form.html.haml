@@ -1,0 +1,65 @@
+= form_for(@application) do |f|
+  - if @application.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@application.errors.count, "error")
+        prohibited this application from being saved:
+      %ul
+        - @application.errors.full_messages.each do |msg|
+          %li= msg
+
+  #form_left
+    %p
+      = f.label 'Business Name'
+      .form_field= f.text_field :business_name 
+    %p
+      = f.label 'DBA Name'
+      .form_field= f.text_field :dba_name 
+    %p
+      = f.label 'Parent Company'
+      .form_field= f.text_field :parent_company
+    %p
+      = f.label 'Taxpayer ID number'
+      .form_field= f.text_field :taxpayer_id_number
+    %p
+      = f.label 'Years in Business'
+      .form_field= f.text_field :years_in_business
+    %p
+      = f.label 'Number of Employees'
+      .form_field= f.text_field :number_of_employees
+    %p
+      = f.label 'Business Website'
+      .form_field= f.text_field :business_website
+    %p
+      = f.label 'Best way to contact you'
+      .form_field= f.text_field :contact_method
+
+
+  #form_right
+    %p
+      = f.label 'Primary Business Address'
+      .form_field= f.text_field :business_address
+    %p
+      = f.label 'City'
+      .form_field= f.text_field :city
+    %p
+      = f.label 'State'
+      .form_field= f.text_field :state
+    %p
+      = f.label 'Zip code'
+      .form_field= f.text_field :zip
+    %p
+      = f.label 'Billing Address'
+      .form_field= f.text_field :billing_address
+    %p
+      = f.label 'Phone number'
+      .form_field= f.text_field :phone_number
+    %p
+      = f.label 'Email'
+      .form_field= f.text_field :email
+
+
+  #submit
+    = f.submit
+    %p
+    = link_to 'Back', client_applications_path
