@@ -14,7 +14,7 @@
       <% @applications.each do |application| %>
         <tr>
           <td><%= link_to 'Show', application %></td>
-          <td><%= link_to 'Edit', edit_application_path(application) %></td>
+          <td><%= link_to 'Edit', edit_client_application_path(application) %></td>
           <td><%= link_to 'Destroy', application, confirm: 'Are you sure?', method: :delete %></td>
         </tr>
       <% end %>
@@ -22,5 +22,5 @@
     </table>
   </div>
 
-  <%= link_to 'New Application', new_application_path %>
+  <%= link_to 'New Application', new_client_application_path %>
 </div>

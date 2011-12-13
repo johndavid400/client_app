@@ -10,7 +10,7 @@ class ClientApplication < ActiveRecord::Base
       transition [:blank] => :submitted
     end
 
-    event :request do
+    event :requesting do
       transition [:submitted] => :requested
     end
 
