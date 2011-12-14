@@ -51,4 +51,27 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.find(params[:id])
     @application.destroy
   end
+
+
+  def attachment_upload
+    @application = ClientApplication.find(params[:client_application][:id])
+
+    @application.attachment = File.new('')
+    if @application.save
+      redirect_to edit_client_application_path(@application), :notice => "New application image uploaded successfully"
+    else
+      render "edit"
+    end
+  end
+
+  def attachment_destroy
+    @image = Image.find(params[:id])
+
+    if @image.destroy
+      redirect_to :back, :notice => "Image destroyed."
+    else
+      render "edit"
+    end
+  end
+
 end

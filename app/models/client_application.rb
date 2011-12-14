@@ -1,5 +1,6 @@
 class ClientApplication < ActiveRecord::Base
-  image_accessor :attachment
+
+  has_many :attachments
 
   state_machine :state, :initial => :blank do
     after_transition :blank => :submitted, :do => :after_submit
