@@ -1,9 +1,32 @@
-%h1 Submitted
+%center
+  %h2 Submitted
+  %h1 Isotope11 - fill in any additionally requested information:
+  %h3 The client has submitted their appplication, and it is awaiting review from Isotope11.
 
-= form_for @application, :html => { :multipart => true } do |f|
-  .field
-    = f.label "Documents"
-    = f.file_field :attachment
+.form_container
+  = form_for @application, :html => { :multipart => true } do |f|
+    .field
+      %p
+        = f.label 'Business Name'
+        .form_field= f.text_field :business_name 
+      %p
+        = f.label 'DBA Name'
+        .form_field= f.text_field :dba_name 
+      %p
+        = f.label 'Parent Company'
+        .form_field= f.text_field :parent_company
+      %p
+        = f.label 'Taxpayer ID number'
+        .form_field= f.text_field :taxpayer_id_number
+      %p
+        = f.label 'Years in Business'
+        .form_field= f.text_field :years_in_business
+      %p
+        = f.label 'Number of Employees'
+        .form_field= f.text_field :number_of_employees
+      %p
+        = f.label 'Documents'
+        .form_field= f.file_field :attachment
 
-  = f.submit "Submit"
+    = f.submit "Submit"
 

@@ -1,9 +1,45 @@
-%h1 Responded
+%center
+  %h2 Responded
+  %h1 Isotope11 - The client has finished their application:
+  %h3
+    Please contact the client to follow up:
+    = @application.phone_number
 
-= form_for @application do |f|
-  = f.label "Responded"
-  = f.text_field :business_name
+.form_container
+  %ul
+    %li= @application.business_name
+    %p
+    %li= @application.dba_name
+    %p
+    %li= @application.parent_company
+    %p
+    %li= @application.taxpayer_id_number
+    %p
+    %li= @application.years_in_business
+    %p
+    %li= @application.number_of_employees
+    %p
+    %li= @application.business_website
+    %p
+    %li= @application.contact_method
+    %p
+    %li= @application.business_address
+    %p
+    %li= @application.city
+    %p
+    %li= @application.state
+    %p
+    %li= @application.zip
+    %p
+    %li= @application.billing_address
+    %p
+    %li= @application.phone_number
+    %p
+    %li= @application.email
+    %p
 
-  = f.submit "Submit"
+.form_attachments
 
-
+%center
+  %h2
+    = link_to "Print this application", '/' 

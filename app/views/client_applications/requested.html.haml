@@ -1,8 +1,32 @@
-%h1 Requested
+%center
+  %h2 Requested
+  %h1 Please fill out the requested information and press submit:
+  %h3 If you have any files to upload, please select them before submitting.
 
-= form_for @application do |f|
-  = f.label "Requesting"
-  = f.text_field :business_name
+.form_container
+  = form_for @application, :html => { :multipart => true } do |f|
+    .field
+      %p
+        = f.label 'Business Name'
+        .form_field= f.text_field :business_name 
+      %p
+        = f.label 'DBA Name'
+        .form_field= f.text_field :dba_name 
+      %p
+        = f.label 'Parent Company'
+        .form_field= f.text_field :parent_company
+      %p
+        = f.label 'Taxpayer ID number'
+        .form_field= f.text_field :taxpayer_id_number
+      %p
+        = f.label 'Years in Business'
+        .form_field= f.text_field :years_in_business
+      %p
+        = f.label 'Number of Employees'
+        .form_field= f.text_field :number_of_employees
+      %p
+        = f.label 'Documents'
+        .form_field= f.file_field :attachment
 
-  = f.submit "Submit"
+    = f.submit "Submit"
 
