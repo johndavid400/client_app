@@ -20,7 +20,8 @@ class ClientApplicationsController < ApplicationController
       flash[:notice] = "Application submitted successfully"
     else
       redirect_to :back
-      flash[:error] = "Application Failed to submit! Please check any errors and try again."
+      error_message = @application.errors.full_messages.first
+      flash[:error] = "Application Failed to submit! " + " " + error_message
     end
   end
 

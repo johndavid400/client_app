@@ -10,7 +10,7 @@
 
   #form_left
     %p
-      = f.label 'Business Name'
+      = f.label 'Business Name*'
       .form_field= f.text_field :business_name 
     %p
       = f.label 'DBA Name'
@@ -31,7 +31,7 @@
       = f.label 'Business Website'
       .form_field= f.text_field :business_website
     %p
-      = f.label 'Best way to contact you'
+      = f.label 'Best way to contact you*'
       .form_field= f.text_field :contact_method
 
 
@@ -52,10 +52,10 @@
       = f.label 'Billing Address'
       .form_field= f.text_field :billing_address
     %p
-      = f.label 'Phone number'
+      = f.label 'Phone number*'
       .form_field= f.text_field :phone_number
     %p
-      = f.label 'Email'
+      = f.label 'Email*'
       .form_field= f.text_field :email
 
 
