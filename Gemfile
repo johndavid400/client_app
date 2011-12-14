@@ -10,9 +10,7 @@ gem 'haml'
 gem 'haml-rails', :group => :development
 gem 'simple_form'
 gem 'state_machine'
-gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly', '~>0.9.8'
-
+gem "paperclip", "~> 2.4"
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'

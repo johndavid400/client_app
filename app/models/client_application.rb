@@ -1,6 +1,6 @@
 class ClientApplication < ActiveRecord::Base
 
-  has_many :attachments
+  has_attached_file :attachment
 
   state_machine :state, :initial => :blank do
     after_transition :blank => :submitted, :do => :after_submit
