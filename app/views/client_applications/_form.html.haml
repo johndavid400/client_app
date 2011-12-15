@@ -61,26 +61,61 @@
     %h1 Select any that apply
 
     %p
-      = f.label 'Public Corporation'
-      .form_field= f.radio_button :business_type, "public_corp"
-    %p
+      = f.radio_button :business_type, "private_corp", :class => "no_field"
       = f.label 'Private Corporation'
-      .form_field= f.radio_button :business_type, "private_corp"
     %p
+      = f.radio_button :business_type, "public_corp", :class => "public_corp"
+      = f.label 'Public Corporation'
+    %p.market_symbol
+      = f.label 'Market Symbol'
+      = f.text_field :market_symbol
+    %p
+      = f.radio_button :business_type, "partnership", :class => "no_field"
       = f.label 'Partnership'
-      .form_field= f.radio_button :business_type, "partnership"
     %p
+      = f.radio_button :business_type, "non_profit", :class => "no_field"
       = f.label 'Non-Profit'
-      .form_field= f.radio_button :business_type, "non_profit"
     %p
+      = f.radio_button :business_type, "sole_proprietor", :class => "no_field"
       = f.label 'Sole Proprietor'
-      .form_field= f.radio_button :business_type, "sole_proprietor"
     %p
+      = f.radio_button :business_type, "other", :class => "other_corp"
       = f.label 'Other'
-      .form_field= f.radio_button :business_type, "other"
+    %p.other_field
+      = f.label 'Please enter other type here:'
+      = f.text_field :other_type
     %p
 
   #submit
     = f.submit
     %p
     = link_to 'Back', client_applications_path
+
+
+:javascript
+  $(document).ready(function(){
+    $('.other_field').hide();
+    $('.market_symbol').hide();
+    $('.other_corp').click(function(){
+      if ($(this).attr("checked") == "checked") {
+        $(".other_field").show();
+        $(".market_symbol").hide();
+      }
+      else {
+        $(".other_field").hide();
+      }
+    });
+    $('.public_corp').click(function(){
+      if ($(this).attr("checked") == "checked") {
+        $(".other_field").hide();
+        $(".market_symbol").show();
+      }
+      else {
+        $(".market_symbol").hide();
+      }
+    });
+    $('.no_field').click(function(){
+      $(".other_field").hide();
+      $(".market_symbol").hide();
+    });
+  });
