@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'state_machine'
 gem "paperclip", "~> 2.4"
 gem 'css-bootstrap-rails'
+gem 'devise'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
