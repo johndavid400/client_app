@@ -1,32 +1,42 @@
 %center
-  %h2 Submitted
-  %h1 Isotope11 - fill in any additionally requested information:
+  %h2 Application Submitted
+  %h1 Isotope11 - request information:
   %h3 The client has submitted their appplication, and it is awaiting review from Isotope11.
 
 .form_container
+  %h4 Please select any forms that you would like to request from the client:
   = form_for @application, :html => { :multipart => true } do |f|
     .field
       %p
-        = f.label 'Business Name'
-        .form_field= f.text_field :business_name 
+        = f.check_box :articles_of_incorporation_file_name, :class => "documents"
+        = 'Articles of Incorporation'
       %p
-        = f.label 'DBA Name'
-        .form_field= f.text_field :dba_name 
+        = f.check_box :proof_of_insurance_file_name, :class => "documents"
+        = 'Proof of Insurance'
       %p
-        = f.label 'Parent Company'
-        .form_field= f.text_field :parent_company
+        = f.check_box :business_license_file_name, :class => "documents"
+        = 'Business License'
       %p
-        = f.label 'Taxpayer ID number'
-        .form_field= f.text_field :taxpayer_id_number
+        = f.check_box :partnership_agreement_file_name, :class => "documents"
+        = 'Partnership Agreement'
       %p
-        = f.label 'Years in Business'
-        .form_field= f.text_field :years_in_business
+        = f.check_box :limited_partnership_file_name, :class => "documents"
+        = 'Limited Partnership LP1'
       %p
-        = f.label 'Number of Employees'
-        .form_field= f.text_field :number_of_employees
+        = f.check_box :charter_file_name, :class => "documents"
+        = 'Charter and By-Laws'
       %p
-        = f.label 'Documents'
-        .form_field= f.file_field :tax_return_one
+        = f.check_box :irs_tax_exempt_status_form_file_name, :class => "documents"
+        = 'IRS Tax Exemption Status Form'
+      %p
+        = f.check_box :bank_statement_file_name, :class => "documents"
+        = 'Bank Statement'
+      %p
+        = f.check_box :tax_return_one_file_name, :class => "documents"
+        = 'Tax Return for last year'
+      %p
+        = f.check_box :tax_return_two_file_name, :class => "documents"
+        = 'Tax Return for the year before last'
 
     = f.submit "Submit"
 
