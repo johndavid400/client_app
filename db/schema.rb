@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20111214220926) do
     t.string   "dba_name"
     t.string   "city"
     t.string   "state_of_residence"
+    t.string   "state"
     t.string   "contact_method"
     t.string   "phone_number"
     t.integer  "years_in_business"
