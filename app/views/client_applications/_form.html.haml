@@ -13,52 +13,52 @@
       = f.label 'Business Name*'
       .form_field= f.text_field :business_name 
     %p
+      = f.label 'Primary Business Address*'
+      .form_field= f.text_field :business_address
+    %p
       = f.label 'DBA Name'
       .form_field= f.text_field :dba_name 
     %p
       = f.label 'Parent Company'
       .form_field= f.text_field :parent_company
     %p
+      = f.label 'Billing Address'
+      .form_field= f.text_field :billing_address
+    %p
       = f.label 'Taxpayer ID number'
       .form_field= f.text_field :taxpayer_id_number
     %p
-      = f.label 'Years in Business'
+      = f.label 'Years in Business*'
       .form_field= f.text_field :years_in_business
     %p
-      = f.label 'Number of Employees'
+      = f.label 'Number of Employees*'
       .form_field= f.text_field :number_of_employees
     %p
       = f.label 'Business Website'
       .form_field= f.text_field :business_website
     %p
-      = f.label 'Best way to contact you*'
-      .form_field= f.text_field :contact_method
-    %p
-      = f.label 'Primary Business Address'
-      .form_field= f.text_field :business_address
-    %p
-      = f.label 'City'
-      .form_field= f.text_field :city
+      = f.label 'Phone number*'
+      .form_field= f.text_field :phone_number
 
 
   #form_right
     %p
-      = f.label 'Phone number*'
-      .form_field= f.text_field :phone_number
+      = f.label 'City*'
+      .form_field= f.text_field :city
+    %p
+      = f.label 'State*'
+      .form_field= f.text_field :state_of_residence
+    %p
+      = f.label 'Zip code*'
+      .form_field= f.text_field :zip
     %p
       = f.label 'Email*'
       .form_field= f.text_field :email
     %p
-      = f.label 'State'
-      .form_field= f.text_field :state
-    %p
-      = f.label 'Zip code'
-      .form_field= f.text_field :zip
-    %p
-      = f.label 'Billing Address'
-      .form_field= f.text_field :billing_address
+      = f.label 'Best way to contact you*'
+      .form_field= f.text_field :contact_method
 
-    %h1 Select any that apply
+    %h1 Select your business type:
 
     %p
       = f.radio_button :business_type, "private_corp", :class => "no_field"
@@ -67,7 +67,7 @@
       = f.radio_button :business_type, "public_corp", :class => "public_corp"
       = f.label 'Public Corporation'
     %p.market_symbol
-      = f.label 'Market Symbol'
+      = f.label 'Market Symbol*'
       = f.text_field :market_symbol
     %p
       = f.radio_button :business_type, "partnership", :class => "no_field"
@@ -82,7 +82,7 @@
       = f.radio_button :business_type, "other", :class => "other_corp"
       = f.label 'Other'
     %p.other_field
-      = f.label 'Please enter other type here:'
+      = f.label 'Please enter other type here:*'
       = f.text_field :other_type
     %p
 
