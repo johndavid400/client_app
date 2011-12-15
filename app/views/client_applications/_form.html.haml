@@ -85,6 +85,9 @@
       = f.label 'Please enter other type here:*'
       = f.text_field :other_type
     %p
+      = f.fields_for :attachments do |a|
+        = a.label "Attachment"
+        = a.file_field :document
 
   #submit
     = f.submit

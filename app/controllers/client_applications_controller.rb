@@ -10,6 +10,7 @@ class ClientApplicationsController < ApplicationController
 
   def new
     @application = ClientApplication.new
+    @attachment = @application.attachments.build
   end
 
   def create
@@ -46,12 +47,13 @@ class ClientApplicationsController < ApplicationController
     elsif @application.state == "completed"
       message = "This application is really complete"
     end
-      redirect_to edit_client_application_path(@application)
-      flash[:messasge] = message
+    redirect_to edit_client_application_path(@application)
+    flash[:messasge] = message
   end
 
   def destroy
     @application = ClientApplication.find(params[:id])
     @application.destroy
   end
+
 end

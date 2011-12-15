@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214220926) do
+ActiveRecord::Schema.define(:version => 20111215172619) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "client_application_id"
+    t.string   "description"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "client_applications", :force => true do |t|
     t.string   "business_name"
@@ -32,10 +43,17 @@ ActiveRecord::Schema.define(:version => 20111214220926) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
+    t.string   "articles_of_incorporation_file_name"
+    t.string   "proof_of_insurance_file_name"
+    t.string   "business_license_file_name"
+    t.string   "partnership_agreement_file_name"
+    t.string   "limited_partnership_file_name"
+    t.string   "charter_file_name"
+    t.string   "association_resolution_file_name"
+    t.string   "irs_tax_exempt_status_form_file_name"
+    t.string   "bank_statement_file_name"
+    t.string   "tax_return_one_file_name"
+    t.string   "tax_return_two_file_name"
     t.string   "business_type"
     t.string   "market_symbol"
     t.string   "other_type"

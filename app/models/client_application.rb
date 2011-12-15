@@ -1,6 +1,20 @@
 class ClientApplication < ActiveRecord::Base
 
-  has_attached_file :attachment
+  has_many :attachments, :dependent => :destroy
+  accepts_nested_attributes_for :attachments, :allow_destroy => true
+
+  has_attached_file :articles_of_incorporation
+  has_attached_file :proof_of_insurance
+  has_attached_file :business_license
+  has_attached_file :partnership_agreement
+  has_attached_file :limited_partnership
+  has_attached_file :charter
+  has_attached_file :association_resolution
+  has_attached_file :irs_tax_exempt_status_form
+  has_attached_file :bank_statement
+  has_attached_file :tax_return_one
+  has_attached_file :tax_return_two
+
   validates_presence_of :business_name, :email, :phone_number, :contact_method
 
   state_machine :state, :initial => :blank do
