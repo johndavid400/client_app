@@ -70,7 +70,7 @@
 #form_right {
   position: relative;
   margin-left: 400px;
-  margin-top: -552px;
+  margin-top: -692px;
 }
 
 #submit {
@@ -78,3 +78,10 @@
   margin-top: 40px;
   margin-left: 400px;
 }
+
+.form_container {
+  width: 800px;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+

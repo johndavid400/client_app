@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207221837) do
+ActiveRecord::Schema.define(:version => 20111214220926) do
 
   create_table "client_applications", :force => true do |t|
     t.string   "business_name"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20111207221837) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.string   "business_type"
+    t.string   "market_symbol"
+    t.string   "other_type"
   end
 
 end

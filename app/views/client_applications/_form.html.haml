@@ -10,7 +10,7 @@
 
   #form_left
     %p
-      = f.label 'Business Name'
+      = f.label 'Business Name*'
       .form_field= f.text_field :business_name 
     %p
       = f.label 'DBA Name'
@@ -31,17 +31,23 @@
       = f.label 'Business Website'
       .form_field= f.text_field :business_website
     %p
-      = f.label 'Best way to contact you'
+      = f.label 'Best way to contact you*'
       .form_field= f.text_field :contact_method
-
-
-  #form_right
     %p
       = f.label 'Primary Business Address'
       .form_field= f.text_field :business_address
     %p
       = f.label 'City'
       .form_field= f.text_field :city
+
+
+  #form_right
+    %p
+      = f.label 'Phone number*'
+      .form_field= f.text_field :phone_number
+    %p
+      = f.label 'Email*'
+      .form_field= f.text_field :email
     %p
       = f.label 'State'
       .form_field= f.text_field :state
@@ -51,15 +57,65 @@
     %p
       = f.label 'Billing Address'
       .form_field= f.text_field :billing_address
-    %p
-      = f.label 'Phone number'
-      .form_field= f.text_field :phone_number
-    %p
-      = f.label 'Email'
-      .form_field= f.text_field :email
 
+    %h1 Select any that apply
+
+    %p
+      = f.radio_button :business_type, "private_corp", :class => "no_field"
+      = f.label 'Private Corporation'
+    %p
+      = f.radio_button :business_type, "public_corp", :class => "public_corp"
+      = f.label 'Public Corporation'
+    %p.market_symbol
+      = f.label 'Market Symbol'
+      = f.text_field :market_symbol
+    %p
+      = f.radio_button :business_type, "partnership", :class => "no_field"
+      = f.label 'Partnership'
+    %p
+      = f.radio_button :business_type, "non_profit", :class => "no_field"
+      = f.label 'Non-Profit'
+    %p
+      = f.radio_button :business_type, "sole_proprietor", :class => "no_field"
+      = f.label 'Sole Proprietor'
+    %p
+      = f.radio_button :business_type, "other", :class => "other_corp"
+      = f.label 'Other'
+    %p.other_field
+      = f.label 'Please enter other type here:'
+      = f.text_field :other_type
+    %p
 
   #submit
     = f.submit
     %p
     = link_to 'Back', client_applications_path
+
+
+:javascript
+  $(document).ready(function(){
+    $('.other_field').hide();
+    $('.market_symbol').hide();
+    $('.other_corp').click(function(){
+      if ($(this).attr("checked") == "checked") {
+        $(".other_field").show();
+        $(".market_symbol").hide();
+      }
+      else {
+        $(".other_field").hide();
+      }
+    });
+    $('.public_corp').click(function(){
+      if ($(this).attr("checked") == "checked") {
+        $(".other_field").hide();
+        $(".market_symbol").show();
+      }
+      else {
+        $(".market_symbol").hide();
+      }
+    });
+    $('.no_field').click(function(){
+      $(".other_field").hide();
+      $(".market_symbol").hide();
+    });
+  });

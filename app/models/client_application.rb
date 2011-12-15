@@ -1,5 +1,8 @@
 class ClientApplication < ActiveRecord::Base
 
+  has_attached_file :attachment
+  validates_presence_of :business_name, :email, :phone_number, :contact_method
+
   state_machine :state, :initial => :blank do
     after_transition :blank => :submitted, :do => :after_submit
     after_transition :submitted => :requested, :do => :after_request
