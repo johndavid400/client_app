@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215221710) do
+ActiveRecord::Schema.define(:version => 20111216155300) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20111215221710) do
     t.string   "business_type"
     t.string   "market_symbol"
     t.string   "other_type"
+    t.text     "project_description"
   end
 
   create_table "users", :force => true do |t|

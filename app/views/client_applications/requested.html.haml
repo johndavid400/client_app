@@ -7,30 +7,39 @@
   = form_for @application, :html => { :multipart => true } do |f|
     .field
       %p
-        = f.label 'Business Name'
-        .form_field= f.text_field :business_name 
+        = f.label 'Articles of Incorporation'
+        .form_field= f.file_field :articles_of_incorporation
       %p
-        = f.label 'DBA Name'
-        .form_field= f.text_field :dba_name 
+        = f.label 'Proof of Insurance'
+        .form_field= f.file_field :proof_of_insurance
       %p
-        = f.label 'Parent Company'
-        .form_field= f.text_field :parent_company
+        = f.label 'Business License'
+        .form_field= f.file_field :parent_company
       %p
-        = f.label 'Taxpayer ID number'
-        .form_field= f.text_field :taxpayer_id_number
+        = f.label 'Partnership Agreement'
+        .form_field= f.file_field :partnership_agreement
       %p
-        = f.label 'Years in Business'
-        .form_field= f.text_field :years_in_business
+        = f.label 'Limited Partnership'
+        .form_field= f.file_field :limited_partnership
       %p
-        = f.label 'Number of Employees'
-        .form_field= f.text_field :number_of_employees
+        = f.label 'Charter'
+        .form_field= f.file_field :charter
       %p
-        = f.label 'Documents'
-        .form_field= f.file_field :attachment
+        = f.label 'Association Resolution'
+        .form_field= f.file_field :association_resolution
       %p
-        Attachments:
-        = f.label 'Documents'
+        = f.label 'IRS Tax Exempt Status form'
+        .form_field= f.file_field :irs_tax_exempt_status_form
+      %p
+        = f.label 'Bank Statement'
+        .form_field= f.file_field :bank_statement
+      %p
+        = f.label 'Tax Return year 1'
         .form_field= f.file_field :tax_return_one
+      %p
+        = f.label 'Tax Return year 2'
+        .form_field= f.file_field :tax_return_two
+      %p
 
     = f.submit "Submit"
 
