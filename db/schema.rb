@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219154013) do
+ActiveRecord::Schema.define(:version => 20111219194443) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20111219154013) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "banking_information_forms", :force => true do |t|
+    t.string   "bank_name"
+    t.string   "bank_address"
+    t.string   "contact_person"
+    t.string   "phone_number"
+    t.string   "previous_bank"
+    t.integer  "client_application_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
