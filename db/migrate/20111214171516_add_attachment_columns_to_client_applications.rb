@@ -11,6 +11,7 @@ class AddAttachmentColumnsToClientApplications < ActiveRecord::Migration
     add_column :client_applications, :bank_statement_file_name, :string
     add_column :client_applications, :tax_return_one_file_name, :string
     add_column :client_applications, :tax_return_two_file_name, :string
+    add_column :client_applications, :litigation_file_name, :string
     add_column :client_applications, :banking_information, :boolean
     add_column :client_applications, :principal_information, :boolean
   end

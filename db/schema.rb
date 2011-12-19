@@ -65,12 +65,14 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
     t.string   "bank_statement_file_name"
     t.string   "tax_return_one_file_name"
     t.string   "tax_return_two_file_name"
+    t.string   "litigation_file_name"
     t.boolean  "banking_information"
     t.boolean  "principal_information"
     t.string   "business_type"
     t.string   "market_symbol"
     t.string   "other_type"
     t.text     "project_description"
+    t.text     "litigation_description"
   end
 
   create_table "principal_information_forms", :force => true do |t|

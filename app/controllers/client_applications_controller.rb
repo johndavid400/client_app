@@ -10,7 +10,10 @@ class ClientApplicationsController < ApplicationController
 
   def new
     @application = ClientApplication.new
-    @attachment = @application.attachments.build
+    # let's make 3 attachments for now
+    @application.attachments.build
+    @application.attachments.build
+    @application.attachments.build
   end
 
   def create
