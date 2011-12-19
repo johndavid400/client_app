@@ -8,58 +8,58 @@
     .field
       - if @application.articles_of_incorporation_file_name == "1"
         %p
-          = f.label 'Articles of Incorporation'
-          .form_field= f.file_field :articles_of_incorporation
+        = f.label 'Articles of Incorporation'
+        = f.file_field :articles_of_incorporation
 
       - if @application.proof_of_insurance_file_name == "1"
         %p
-          = f.label 'Proof of Insurance'
-          .form_field= f.file_field :proof_of_insurance
+        = f.label 'Proof of Insurance'
+        = f.file_field :proof_of_insurance
 
       - if @application.partnership_agreement_file_name == "1"
         %p
-          = f.label 'Partnership Agreement'
-          .form_field= f.file_field :partnership_agreement
+        = f.label 'Partnership Agreement'
+        = f.file_field :partnership_agreement
 
       - if @application.limited_partnership_file_name == "1"
         %p
-          = f.label 'Limited Partnership'
-          .form_field= f.file_field :limited_partnership
+        = f.label 'Limited Partnership'
+        = f.file_field :limited_partnership
 
       - if @application.charter_file_name == "1"
         %p
-          = f.label 'Charter'
-          .form_field= f.file_field :charter
+        = f.label 'Charter'
+        = f.file_field :charter
 
       - if @application.business_license_file_name == "1"
         %p
-          = f.label 'Business License'
-          .form_field= f.file_field :business_license
+        = f.label 'Business License'
+        = f.file_field :business_license
 
       - if @application.association_resolution_file_name == "1"
         %p
-          = f.label 'Association Resolution'
-          .form_field= f.file_field :association_resolution
+        = f.label 'Association Resolution'
+        = f.file_field :association_resolution
 
       - if @application.irs_tax_exempt_status_form_file_name == "1"
         %p
-          = f.label 'IRS Tax Exempt Status form'
-          .form_field= f.file_field :irs_tax_exempt_status_form
+        = f.label 'IRS Tax Exempt Status form'
+        = f.file_field :irs_tax_exempt_status_form
 
       - if @application.bank_statement_file_name == "1"
         %p
-          = f.label 'Bank Statement'
-          .form_field= f.file_field :bank_statement
+        = f.label 'Bank Statement'
+        = f.file_field :bank_statement
 
       - if @application.tax_return_one_file_name == "1"
         %p
-          = f.label 'Tax Return year 1'
-          .form_field= f.file_field :tax_return_one
+        = f.label 'Tax Return year 1'
+        = f.file_field :tax_return_one
 
       - if @application.tax_return_two_file_name == "1"
         %p
-          = f.label 'Tax Return year 2'
-          .form_field= f.file_field :tax_return_two
+        = f.label 'Tax Return year 2'
+        = f.file_field :tax_return_two
 
       - if @application.principal_information?
         %h3 Principal Information Form
@@ -130,8 +130,24 @@
           %p
 
       - if @application.banking_information?
-        = 'Banking Information Form'
+        %h3 Banking Information Form
         %p
+        = f.fields_for :banking_information_forms do |b|
+          = b.label 'Bank Name'
+          = b.text_field :bank_name
+          %p
+          = b.label 'Bank Address'
+          = b.text_field :bank_address
+          %p
+          = b.label 'Contact Person'
+          = b.text_field :contact_person
+          %p
+          = b.label 'Bank Phone Number'
+          = b.text_field :phone_number
+          %p
+          = b.label 'Previous Banking Institution'
+          = b.text_field :previous_bank
+          %p
 
     = f.submit "Submit"
 
