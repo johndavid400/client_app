@@ -2,8 +2,10 @@ class ClientApplication < ActiveRecord::Base
 
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
+  has_many :banking_information_forms, :dependent => :destroy
   accepts_nested_attributes_for :attachments, :allow_destroy => true
   accepts_nested_attributes_for :principal_information_forms, :allow_destroy => true
+  accepts_nested_attributes_for :banking_information_forms, :allow_destroy => true
 
   has_attached_file :articles_of_incorporation
   has_attached_file :proof_of_insurance
