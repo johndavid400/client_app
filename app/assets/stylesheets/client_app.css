@@ -85,3 +85,30 @@
   margin-left: 40px;
 }
 
+.submitted {
+  background; green;
+  width: 300px;
+  height: 100px;
+  border: black 1px solid;
+}
+
+.requested {
+  background; blue;
+  width: 300px;
+  height: 100px;
+  border: black 1px solid;
+}
+
+.responded {
+  background; red;
+  width: 300px;
+  height: 100px;
+  border: black 1px solid;
+}
+
+.completed{
+  background; yellow;
+  width: 300px;
+  height: 100px;
+  border: black 1px solid;
+}

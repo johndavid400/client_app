@@ -1,4 +1,15 @@
-%p#notice= notice
+%h1= @application.business_name
+
+.submitted
+  %h1 Submitted
+
+.requested
+  %h1 Requested
+
+.responded
+  %h1 Responded
+
+.completed
+  %h1 Completed
+
 = link_to 'Edit', edit_client_application_path(@application)
-|
-\#{link_to 'Back', client_applications_path}
