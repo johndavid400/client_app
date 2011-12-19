@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
     t.string   "tax_return_one_file_name"
     t.string   "tax_return_two_file_name"
     t.string   "litigation_file_name"
+    t.boolean  "litigation_information"
     t.boolean  "banking_information"
     t.boolean  "principal_information"
     t.string   "business_type"
