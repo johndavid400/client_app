@@ -112,3 +112,7 @@
   height: 100px;
   border: black 1px solid;
 }
+
+.litigation_fields {
+  float: left;
+}

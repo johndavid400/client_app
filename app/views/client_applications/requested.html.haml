@@ -10,56 +10,47 @@
         %p
         = f.label 'Articles of Incorporation'
         = f.file_field :articles_of_incorporation
-
       - if @application.proof_of_insurance_file_name == "1"
         %p
         = f.label 'Proof of Insurance'
         = f.file_field :proof_of_insurance
-
       - if @application.partnership_agreement_file_name == "1"
         %p
         = f.label 'Partnership Agreement'
         = f.file_field :partnership_agreement
-
       - if @application.limited_partnership_file_name == "1"
         %p
         = f.label 'Limited Partnership'
         = f.file_field :limited_partnership
-
       - if @application.charter_file_name == "1"
         %p
         = f.label 'Charter'
         = f.file_field :charter
-
       - if @application.business_license_file_name == "1"
         %p
         = f.label 'Business License'
         = f.file_field :business_license
-
       - if @application.association_resolution_file_name == "1"
         %p
         = f.label 'Association Resolution'
         = f.file_field :association_resolution
-
       - if @application.irs_tax_exempt_status_form_file_name == "1"
         %p
         = f.label 'IRS Tax Exempt Status form'
         = f.file_field :irs_tax_exempt_status_form
-
       - if @application.bank_statement_file_name == "1"
         %p
         = f.label 'Bank Statement'
         = f.file_field :bank_statement
-
       - if @application.tax_return_one_file_name == "1"
         %p
         = f.label 'Tax Return year 1'
         = f.file_field :tax_return_one
-
       - if @application.tax_return_two_file_name == "1"
         %p
         = f.label 'Tax Return year 2'
         = f.file_field :tax_return_two
+
 
       - if @application.principal_information?
         %h3 Principal Information Form
@@ -149,5 +140,31 @@
           = b.text_field :previous_bank
           %p
 
+      - if @application.litigation_file_name == "1"
+        %p
+        %h3 Any previous litigation?
+        %p
+        = 'No'
+        = f.radio_button :litigation_file_name, "no", :class => "litigation_no", :checked => true
+        = 'Yes'
+        = f.radio_button :litigation_file_name, "yes", :class => "litigation_yes"
+        %p
+          .litigation_fields
+            = f.label 'Please describe litigation'
+            = f.text_area :litigation_description
+            %p
+            = f.label 'Attachments'
+            = f.file_field :litigation_file_name
+
     = f.submit "Submit"
 
+:javascript
+  $(document).ready(function(){
+    $('.litigation_fields').hide();
+    $('.litigation_yes').click(function(){
+      $(".litigation_fields").show();
+    });
+    $('.litigation_no').click(function(){
+      $(".litigation_fields").hide();
+    });
+  });
