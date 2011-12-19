@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216155300) do
+ActiveRecord::Schema.define(:version => 20111219154013) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -58,6 +58,32 @@ ActiveRecord::Schema.define(:version => 20111216155300) do
     t.string   "market_symbol"
     t.string   "other_type"
     t.text     "project_description"
+  end
+
+  create_table "principal_information_forms", :force => true do |t|
+    t.string   "name"
+    t.string   "alternate_name"
+    t.string   "ssn"
+    t.string   "dob"
+    t.string   "dl_number"
+    t.string   "dl_state"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "county"
+    t.string   "prev_street_address"
+    t.string   "prev_city"
+    t.string   "prev_state"
+    t.string   "prev_zip"
+    t.string   "prev_county"
+    t.string   "position"
+    t.string   "company"
+    t.string   "years_with_company"
+    t.string   "prev_employer"
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
