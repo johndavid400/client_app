@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20111219154013) do
     t.string   "bank_statement_file_name"
     t.string   "tax_return_one_file_name"
     t.string   "tax_return_two_file_name"
+    t.boolean  "banking_information"
+    t.boolean  "principal_information"
     t.string   "business_type"
     t.string   "market_symbol"
     t.string   "other_type"
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20111219154013) do
     t.string   "years_with_company"
     t.string   "prev_employer"
     t.string   "date"
+    t.integer  "client_application_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

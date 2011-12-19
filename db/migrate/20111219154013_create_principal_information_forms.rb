@@ -22,6 +22,7 @@ class CreatePrincipalInformationForms < ActiveRecord::Migration
       t.string :years_with_company
       t.string :prev_employer
       t.string :date
+      t.integer :client_application_id
 
       t.timestamps
     end
