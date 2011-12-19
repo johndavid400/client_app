@@ -28,6 +28,7 @@ class ClientApplicationsController < ApplicationController
 
   def edit
     @application = ClientApplication.find(params[:id])
+    @principal_information_form = @application.principal_information_forms.build
     render @application.state
   end
 

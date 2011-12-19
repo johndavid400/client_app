@@ -37,6 +37,12 @@
       %p
         = f.check_box :tax_return_two_file_name, :class => "documents"
         = 'Tax Return for the year before last'
+      %p
+        = f.check_box :principal_information, :class => "documents"
+        = 'Principal Information form'
+      %p
+        = f.check_box :banking_information, :class => "documents"
+        = 'Banking Information form'
 
     = f.submit "Submit"
 
