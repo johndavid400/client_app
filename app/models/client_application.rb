@@ -1,5 +1,6 @@
 class ClientApplication < ActiveRecord::Base
 
+  belongs_to :user
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
   has_many :banking_information_forms, :dependent => :destroy
@@ -20,7 +21,7 @@ class ClientApplication < ActiveRecord::Base
   has_attached_file :tax_return_two
   has_attached_file :litigation
 
-  validates_presence_of :business_name, :email, :phone_number, :contact_method
+ # validates_presence_of :business_name, :email, :phone_number, :contact_method
 
   state_machine :state, :initial => :blank do
     after_transition :blank => :submitted, :do => :after_submit
