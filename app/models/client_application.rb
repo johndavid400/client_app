@@ -18,6 +18,7 @@ class ClientApplication < ActiveRecord::Base
   has_attached_file :bank_statement
   has_attached_file :tax_return_one
   has_attached_file :tax_return_two
+  has_attached_file :litigation
 
   validates_presence_of :business_name, :email, :phone_number, :contact_method
 
