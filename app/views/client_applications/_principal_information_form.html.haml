@@ -1,64 +1,78 @@
-= p.label 'Name'
-= p.text_field :name
+%h3 Principal Information Form
 %p
-= p.label 'Alternate Name'
-= p.text_field :alternate_name
-%p
-= p.label 'Social Security Number'
-= p.text_field :ssn
-%p
-= p.label 'Date of Birth'
-= p.text_field :dob
-%p
-= p.label 'Drivers License Number'
-= p.text_field :dl_number
-%p
-= p.label 'Drivers License State'
-= p.text_field :dl_state
-%p
-= p.label 'Street Address'
-= p.text_field :street_address
-%p
-
-= p.label 'City'
-= p.text_field :city
-%p
-= p.label 'State'
-= p.text_field :state
-%p
-= p.label 'Zip Code'
-= p.text_field :zip
-%p
-= p.label 'County'
-= p.text_field :county
-%p
-= p.label 'Previous Street Address'
-= p.text_field :prev_street_address
-%p
-= p.label 'Previous City'
-= p.text_field :prev_city
-%p
-= p.label 'Previous State'
-= p.text_field :prev_state
-%p
-= p.label 'Previous Zip'
-= p.text_field :prev_zip
-%p
-= p.label 'Previous County'
-= p.text_field :prev_county
-%p
-= p.label 'Position'
-= p.text_field :position
-%p
-= p.label 'Company'
-= p.text_field :company
-%p
-= p.label 'Years with Company'
-= p.text_field :years_with_company
-%p
-= p.label 'Previous Employer'
-= p.text_field :prev_employer
-%p
-= p.label "Today's Date"
-= p.text_field :date
-%p
+= f.fields_for :principal_information_forms do |p|
+  = p.label 'Name'
+  = p.text_field :name
+  %p
+  = p.label 'Alternate Name'
+  = p.text_field :alternate_name
+  %p
+  = p.label 'Social Security Number'
+  = p.text_field :ssn
+  %p
+  = p.label 'Date of Birth'
+  = p.text_field :dob
+  %p
+  = p.label 'Drivers License Number'
+  = p.text_field :dl_number
+  %p
+  = p.label 'Drivers License State'
+  = p.text_field :dl_state
+  %p
+  .address_info
+    = p.label 'Street Address'
+    = p.text_field :street_address
+    %p
+    = p.label 'City'
+    = p.text_field :city
+    %p
+    = p.label 'State'
+    = p.text_field :state
+    %p
+    = p.label 'Zip Code'
+    = p.text_field :zip
+    %p
+    = p.label 'County'
+    = p.text_field :county
+    %p
+    %h3 Have you lived at your current address for less than 3 years?
+    %p
+    = 'Yes'
+    = radio_button_tag 'address', "yes", :checked => true
+    = 'No'
+    = radio_button_tag 'address', "no"
+    %p
+    .prev_address_fields
+      = p.label 'Previous Street Address'
+      = p.text_field :prev_street_address
+      %p
+      = p.label 'Previous City'
+      = p.text_field :prev_city
+      %p
+      = p.label 'Previous State'
+      = p.text_field :prev_state
+      %p
+      = p.label 'Previous Zip'
+      = p.text_field :prev_zip
+      %p
+      = p.label 'Previous County'
+      = p.text_field :prev_county
+  .employment_info
+    %p
+    %h3 Employment Status
+    %p
+    = p.label 'Position'
+    = p.text_field :position
+    %p
+    = p.label 'Company'
+    = p.text_field :company
+    %p
+    = p.label 'Years with Company'
+    = p.text_field :years_with_company
+    %p
+    = p.label 'Previous Employer'
+    = p.text_field :prev_employer
+    %p
+    = p.label "Today's Date"
+    = p.text_field :date
+    %p

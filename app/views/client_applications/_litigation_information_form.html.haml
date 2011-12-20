@@ -1,0 +1,14 @@
+%p
+%h3 Any previous litigation?
+%p
+= 'No'
+= radio_button_tag 'litigation', "no", :checked => true
+= 'Yes'
+= radio_button_tag 'litigation', "yes"
+%p
+.litigation_fields
+  = f.label 'Please describe litigation'
+  = f.text_area :litigation_description
+  %p
+  = f.label 'Attachments'
+  = f.file_field :litigation_file_name

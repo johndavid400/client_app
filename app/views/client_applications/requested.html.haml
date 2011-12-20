@@ -6,165 +6,33 @@
 .form_container
   = form_for @application, :html => { :multipart => true } do |f|
     .field
-      - if @application.articles_of_incorporation_file_name == "1"
-        %p
-        = f.label 'Articles of Incorporation'
-        = f.file_field :articles_of_incorporation
-      - if @application.proof_of_insurance_file_name == "1"
-        %p
-        = f.label 'Proof of Insurance'
-        = f.file_field :proof_of_insurance
-      - if @application.partnership_agreement_file_name == "1"
-        %p
-        = f.label 'Partnership Agreement'
-        = f.file_field :partnership_agreement
-      - if @application.limited_partnership_file_name == "1"
-        %p
-        = f.label 'Limited Partnership'
-        = f.file_field :limited_partnership
-      - if @application.charter_file_name == "1"
-        %p
-        = f.label 'Charter'
-        = f.file_field :charter
-      - if @application.business_license_file_name == "1"
-        %p
-        = f.label 'Business License'
-        = f.file_field :business_license
-      - if @application.association_resolution_file_name == "1"
-        %p
-        = f.label 'Association Resolution'
-        = f.file_field :association_resolution
-      - if @application.irs_tax_exempt_status_form_file_name == "1"
-        %p
-        = f.label 'IRS Tax Exempt Status form'
-        = f.file_field :irs_tax_exempt_status_form
-      - if @application.bank_statement_file_name == "1"
-        %p
-        = f.label 'Bank Statement'
-        = f.file_field :bank_statement
-      - if @application.tax_return_one_file_name == "1"
-        %p
-        = f.label 'Tax Return year 1'
-        = f.file_field :tax_return_one
-      - if @application.tax_return_two_file_name == "1"
-        %p
-        = f.label 'Tax Return year 2'
-        = f.file_field :tax_return_two
-
-
       - if @application.principal_information?
-        %h3 Principal Information Form
-        %p
-        = f.fields_for :principal_information_forms do |p|
-          = p.label 'Name'
-          = p.text_field :name
-          %p
-          = p.label 'Alternate Name'
-          = p.text_field :alternate_name
-          %p
-          = p.label 'Social Security Number'
-          = p.text_field :ssn
-          %p
-          = p.label 'Date of Birth'
-          = p.text_field :dob
-          %p
-          = p.label 'Drivers License Number'
-          = p.text_field :dl_number
-          %p
-          = p.label 'Drivers License State'
-          = p.text_field :dl_state
-          %p
-          = p.label 'Street Address'
-          = p.text_field :street_address
-          %p
-          = p.label 'City'
-          = p.text_field :city
-          %p
-          = p.label 'State'
-          = p.text_field :state
-          %p
-          = p.label 'Zip Code'
-          = p.text_field :zip
-          %p
-          = p.label 'County'
-          = p.text_field :county
-          %p
-          = p.label 'Previous Street Address'
-          = p.text_field :prev_street_address
-          %p
-          = p.label 'Previous City'
-          = p.text_field :prev_city
-          %p
-          = p.label 'Previous State'
-          = p.text_field :prev_state
-          %p
-          = p.label 'Previous Zip'
-          = p.text_field :prev_zip
-          %p
-          = p.label 'Previous County'
-          = p.text_field :prev_county
-          %p
-          = p.label 'Position'
-          = p.text_field :position
-          %p
-          = p.label 'Company'
-          = p.text_field :company
-          %p
-          = p.label 'Years with Company'
-          = p.text_field :years_with_company
-          %p
-          = p.label 'Previous Employer'
-          = p.text_field :prev_employer
-          %p
-          = p.label "Today's Date"
-          = p.text_field :date
-          %p
+        = render 'principal_information_form', :f => f
 
       - if @application.banking_information?
-        %h3 Banking Information Form
-        %p
-        = f.fields_for :banking_information_forms do |b|
-          = b.label 'Bank Name'
-          = b.text_field :bank_name
-          %p
-          = b.label 'Bank Address'
-          = b.text_field :bank_address
-          %p
-          = b.label 'Contact Person'
-          = b.text_field :contact_person
-          %p
-          = b.label 'Bank Phone Number'
-          = b.text_field :phone_number
-          %p
-          = b.label 'Previous Banking Institution'
-          = b.text_field :previous_bank
-          %p
+        = render 'banking_information_form', :f => f
 
       - if @application.litigation_file_name == "1"
-        %p
-        %h3 Any previous litigation?
-        %p
-        = 'No'
-        = f.radio_button :litigation_file_name, "no", :class => "litigation_no", :checked => true
-        = 'Yes'
-        = f.radio_button :litigation_file_name, "yes", :class => "litigation_yes"
-        %p
-          .litigation_fields
-            = f.label 'Please describe litigation'
-            = f.text_area :litigation_description
-            %p
-            = f.label 'Attachments'
-            = f.file_field :litigation_file_name
+        = render 'litigation_information_form', :f => f
 
     = f.submit "Submit"
 
 :javascript
   $(document).ready(function(){
     $('.litigation_fields').hide();
-    $('.litigation_yes').click(function(){
+    $('.prev_address_fields').hide();
+
+    $('#litigation_yes').click(function(){
       $(".litigation_fields").show();
     });
-    $('.litigation_no').click(function(){
+    $('#litigation_no').click(function(){
       $(".litigation_fields").hide();
+    });
+
+    $('#address_yes').click(function(){
+      $(".prev_address_fields").hide();
+    });
+    $('#address_no').click(function(){
+      $(".prev_address_fields").show();
     });
   });

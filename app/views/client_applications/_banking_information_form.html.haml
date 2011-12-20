@@ -1,0 +1,18 @@
+%h3 Banking Information Form
+%p
+= f.fields_for :banking_information_forms do |b|
+  = b.label 'Bank Name'
+  = b.text_field :bank_name
+  %p
+  = b.label 'Bank Address'
+  = b.text_field :bank_address
+  %p
+  = b.label 'Contact Person'
+  = b.text_field :contact_person
+  %p
+  = b.label 'Bank Phone Number'
+  = b.text_field :phone_number
+  %p
+  = b.label 'Previous Banking Institution'
+  = b.text_field :previous_bank
+  %p
