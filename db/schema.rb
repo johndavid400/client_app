@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
     t.integer  "number_of_employees"
     t.string   "zip"
     t.string   "email"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "articles_of_incorporation_file_name"
@@ -107,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
     t.string   "username"
     t.string   "password"
     t.string   "password_confirmation"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false

@@ -17,6 +17,7 @@ class CreateClientApplications < ActiveRecord::Migration
       t.integer :number_of_employees
       t.string :zip
       t.string :email
+      t.integer :user_id
 
       t.timestamps
     end
