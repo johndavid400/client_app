@@ -20,8 +20,13 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.new(params[:client_application])
     if @application.save
       @application.submit!
-      redirect_to edit_client_application_path(@application)
-      flash[:notice] = "Application submitted successfully"
+      @user = User.new(:email => @application.email, :password => "password", :password_confirmation => "password")
+      if @user.save
+        # would like to refactor here!!
+        @application.update_attributes(:user_id => @user.id)
+        redirect_to "/"
+        flash[:notice] = "Application submitted successfully"
+      end
     else
       redirect_to :back
       error_message = @application.errors.full_messages.first
@@ -52,13 +57,14 @@ class ClientApplicationsController < ApplicationController
     elsif @application.state == "completed"
       message = "This application is really complete"
     end
-    redirect_to edit_client_application_path(@application)
+    redirect_to "/"
     flash[:messasge] = message
   end
 
   def destroy
     @application = ClientApplication.find(params[:id])
     @application.destroy
+    redirect_to :back
   end
 
 end
