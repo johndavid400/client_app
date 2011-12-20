@@ -1,0 +1,99 @@
+$state_width: 300px;
+$state_padding: 10px;
+$state_background: #00FF4A;
+$standard_margin: 20px auto 20px auto;
+$border: black 1px solid;
+
+/* divs to show current state */
+
+.submitted {
+  background: $state_background;
+  width: $state_width;
+  margin: $standard_margin;
+  padding: $state_padding;
+  border: $border;
+}
+.requested {
+  @extend .submitted;
+}
+.responded {
+  @extend .submitted;
+}
+.completed{
+  @extend .submitted;
+}
+
+.wrapper {
+  width: 960px;
+  background: #D3D3D3;
+  margin: 10px auto 0px auto;
+  padding: 5px 0px 15px 0px;
+  border: #015E93 5px solid;
+}
+
+.title {
+  text-align: center;
+}
+
+.notice {
+  background:#ccc;
+  border:1px solid #83B0BE;
+  color:#3D606F;
+  margin: 0 auto;
+  padding: 10px 0 10px 375px;
+  font-size:1.7em;
+}
+
+.content {
+  width: 450px;
+  margin: 50px auto 20px auto;
+  text-align: center;
+  border: #015E93 1px solid;
+  padding-top: 20px;
+}
+
+.content .button {
+  font-size: 20px;
+  background: #ADAED8;
+  padding: 5px 0px 5px 0px;
+  width: 150px;
+  margin: $standard_margin;
+  border: #015E93 1px solid;
+}
+
+#form_left {
+  position: relative;
+  margin-left: 0px;
+}
+
+#form_right {
+  position: relative;
+  margin-left: 400px;
+  margin-top: -552px;
+}
+
+#submit {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 400px;
+}
+
+.form_container {
+  width: 800px;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.litigation_fields {
+  float: left;
+}
+
+.sign_in {
+  background: #ADAED8;
+  position: relative;
+  width: 250px;
+  padding: 30px;
+  margin: $standard_margin;
+  border: black 1px solid;
+}
+
