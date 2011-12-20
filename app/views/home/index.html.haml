@@ -1,17 +1,68 @@
-%h1.title Isotope11 New Client Application
+%h1.title Isotope11 Client Application
 .content
-  %h4 Thank you for your interest in Isotope11 software development.
-  %h4 If you would like to see how we can better help your business succeed, please fill out this short new client application and we will contact you shortly!
-
-  %h5 Services Offered:
-  %ul
-    %li User authentication
-    %li Database management
-    %li Ecommerce solutions
-    %li Social business networking
-    %li Professional communication and service
-
-  #new_app
-    %h3= link_to "New Application", new_client_application_path
-
+  - if current_user
+    - if current_user.admin
+      %table
+        %tr
+          %th Client email
+          %th edit
+          %th delete
+        - @applications.each do |app|
+          %tr
+            %td= app.email
+            %td= link_to 'Edit', edit_client_application_path(app)
+            %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
+    - else
+      .button= link_to('Logout', destroy_user_session_path, :method => :delete)
+      %p
+      = 'state: '
+      = current_user.client_application.state
+      %p
+      - if current_user.client_application.state == "submitted"
+        %h3 Your application has been submitted!
+        .submitted
+          Isotope11 is currently reviewing your application, and will email when further information is required.
+          %p
+          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+      - if current_user.client_application.state == "requested"
+        %h3 We need more information!
+        .requested
+          Isotope11 has reviewed your application, and needs more information from you.
+          %p
+          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+      - if current_user.client_application.state == "responded"
+        %h3 You have responded to Isotope's request!
+        .responded
+          Isotope will now finish processing your application.
+          %p
+          Please be patient as this could take a few days. You will receive an email when complete.
+          %p
+          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+      - if current_user.client_application.state == "completed"
+        %h3 Your application is complete!
+        .completed
+          Isotope11 has received your completed application!
+          %p
+          We will contact you soon.
+  - else
+    %center
+      %h3 Click below to start a new application:
+    .button= link_to "New Application", new_client_application_path
+    %center
+      %h3 or Sign-in to edit your existing application:
+    .sign_in
+      %center
+        %h3 Sign in
+      = form_tag user_session_path do
+        = label_tag 'email'
+        = text_field_tag 'user[email]'
+        %p
+        = label_tag 'password'
+        = password_field_tag 'user[password]'
+        %p
+        = check_box_tag 'user[remember_me]'
+        = 'Remember me'
+        %p
+        %button Sign in
+        = link_to "Forgot your password?", new_password_path('user')
 
