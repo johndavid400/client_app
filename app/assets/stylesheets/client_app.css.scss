@@ -1,103 +1,18 @@
-$state_width: 300px;
-$state_padding: 10px;
-$state_background: #00FF4A;
-$standard_margin: 20px auto 20px auto;
-$border: black 1px solid;
-
-/* divs to show current state */
-
-.submitted {
-  background: $state_background;
-  width: $state_width;
-  margin: $standard_margin;
-  padding: $state_padding;
-  border: $border;
-}
-.requested {
-  @extend .submitted;
-}
-.responded {
-  @extend .submitted;
-}
-.completed{
-  @extend .submitted;
-}
-
-.wrapper {
-  width: 960px;
-  background: #D3D3D3;
-  margin: 10px auto 0px auto;
-  padding: 5px 0px 15px 0px;
-  border: #015E93 5px solid;
-}
-
-.form_wrapper {
-  padding: 50px 50px 50px 50px;
-}
-
-.title {
-  text-align: center;
-}
-
-.notice {
-  border:1px solid #83B0BE;
-  color:#3D606F;
-  margin: 0 auto;
-  padding: 10px 0 10px 375px;
-  font-size:1.7em;
-}
-
-.content {
-  width: 450px;
-  margin: 50px auto 20px auto;
-  text-align: center;
-  border: #015E93 1px solid;
-  padding-top: 20px;
-}
-
-.content .button {
-  font-size: 20px;
-  background: #ADAED8;
-  padding: 5px 0px 5px 0px;
-  width: 150px;
-  margin: $standard_margin;
-  border: #015E93 1px solid;
-}
-
-#submit {
-  position: relative;
-  margin-top: 100px;
-  margin-left: 400px;
-}
-
-.litigation_fields {
-  float: left;
+#session_options{
+  position: absolute;
+  left: 950px;
+  top: 5px;
 }
 
 .sign_in {
-  background: #ADAED8;
-  position: relative;
-  width: 250px;
-  padding: 30px;
-  margin: $standard_margin;
-  border: black 1px solid;
+  position: absolute;
+  font-color: white;
+  background: #57BCDA;
+  top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+  border: black solid 1px;
+  padding: 10px;
 }
-
-.field_sets {
-  border: 1px dotted gray;
-  padding: 10px 10px 10px 10px;
-  width: 250px;
-  float: left;
-}
-.personal_info {
-  @extend .field_sets;
-}
-.employment_info {
-  @extend .field_sets;
-  margin-top: -9px;
-}
-.address_info {
-  @extend .field_sets;
-  margin-top: -9px;
-}
-
