@@ -31,12 +31,15 @@ $border: black 1px solid;
   border: #015E93 5px solid;
 }
 
+.form_wrapper {
+  padding: 50px 50px 50px 50px;
+}
+
 .title {
   text-align: center;
 }
 
 .notice {
-  background:#ccc;
   border:1px solid #83B0BE;
   color:#3D606F;
   margin: 0 auto;
@@ -61,27 +64,10 @@ $border: black 1px solid;
   border: #015E93 1px solid;
 }
 
-#form_left {
-  position: relative;
-  margin-left: 0px;
-}
-
-#form_right {
-  position: relative;
-  margin-left: 400px;
-  margin-top: -552px;
-}
-
 #submit {
   position: relative;
-  margin-top: 40px;
+  margin-top: 100px;
   margin-left: 400px;
-}
-
-.form_container {
-  width: 800px;
-  margin-top: 50px;
-  margin-left: 40px;
 }
 
 .litigation_fields {
@@ -95,5 +81,23 @@ $border: black 1px solid;
   padding: 30px;
   margin: $standard_margin;
   border: black 1px solid;
+}
+
+.field_sets {
+  border: 1px dotted gray;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
+  float: left;
+}
+.personal_info {
+  @extend .field_sets;
+}
+.employment_info {
+  @extend .field_sets;
+  margin-top: -9px;
+}
+.address_info {
+  @extend .field_sets;
+  margin-top: -9px;
 }
 

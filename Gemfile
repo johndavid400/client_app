@@ -11,7 +11,7 @@ gem 'haml-rails', :group => :development
 gem 'simple_form'
 gem 'state_machine'
 gem "paperclip", "~> 2.4"
-gem 'css-bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 group :assets do
