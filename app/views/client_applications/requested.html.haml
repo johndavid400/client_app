@@ -1,19 +1,15 @@
 %center
-  %h2 Requested
   %h1 Please provide the requested information and press submit:
   %h3 If you have any files to upload, please select them before submitting.
 
-.form_container
+.form_wrapper
   = form_for @application, :html => { :multipart => true } do |f|
-    .field
-      = render 'requested_information_form', :f => f, :application => @application
-      - if @application.principal_information?
-        = render 'principal_information_form', :f => f
-      - if @application.banking_information?
-        = render 'banking_information_form', :f => f
-      - if @application.litigation_file_name == "1"
-        = render 'litigation_information_form', :f => f
-    = f.submit "Submit"
+    = render 'banking_information_form', :f => f
+    = render 'requested_information_form', :f => f, :application => @application
+    = render 'principal_information_form', :f => f
+    = render 'litigation_information_form', :f => f
+    #submit
+      = f.submit "Submit"
 
 :javascript
   $(document).ready(function(){

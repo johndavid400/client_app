@@ -8,17 +8,19 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="main-wrap">
-      <div class="header-internal">
-        <div class="title-bar-internal">
+    <div class='topbar'>
+      <div class='topbar-inner'>
+        <div class='container'>
+          <a class='brand' href='#'>Isotope11 Client Application</a>
+          <%= yield :title %>
         </div>
       </div>
-      <div class="wrapper">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-        <br class="clear">
-      </div>
+    </div>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+      <br class="clear">
     </div>
   </body>
 </html>

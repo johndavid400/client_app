@@ -1,99 +1,105 @@
-= form_for(@application) do |f|
-  - if @application.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@application.errors.count, "error")
-        prohibited this application from being saved:
-      %ul
-        - @application.errors.full_messages.each do |msg|
-          %li= msg
+.form_wrapper
+  = form_for(@application) do |f|
+    - if @application.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@application.errors.count, "error")
+          prohibited this application from being saved:
+        %ul
+          - @application.errors.full_messages.each do |msg|
+            %li= msg
 
-  #form_left
-    %p
-      = f.label 'Business Name*'
-      .form_field= f.text_field :business_name 
-    %p
-      = f.label 'Primary Business Address*'
-      .form_field= f.text_field :business_address
-    %p
-      = f.label 'DBA Name'
-      .form_field= f.text_field :dba_name 
-    %p
-      = f.label 'Parent Company'
-      .form_field= f.text_field :parent_company
-    %p
-      = f.label 'Billing Address'
-      .form_field= f.text_field :billing_address
-    %p
-      = f.label 'Taxpayer ID number'
-      .form_field= f.text_field :taxpayer_id_number
-    %p
-      = f.label 'Years in Business*'
-      .form_field= f.text_field :years_in_business
-    %p
-      = f.label 'Number of Employees*'
-      .form_field= f.text_field :number_of_employees
-    %p
-      = f.label 'Business Website'
-      .form_field= f.text_field :business_website
-    %p
-      = f.label 'Phone number*'
-      .form_field= f.text_field :phone_number
+    %fieldset.business_info
+      %legend
+        Business Information
+      .clearfix
+        = f.label 'Business Name*'
+        .input= f.text_field :business_name 
+      .clearfix
+        = f.label 'Primary Business Address*'
+        .input= f.text_field :business_address
+      .clearfix
+        = f.label 'DBA Name'
+        .input= f.text_field :dba_name 
+      .clearfix
+        = f.label 'Parent Company'
+        .input= f.text_field :parent_company
+      .clearfix
+        = f.label 'Billing Address'
+        .input= f.text_field :billing_address
+      .clearfix
+        = f.label 'Taxpayer ID number'
+        .input= f.text_field :taxpayer_id_number
+      .clearfix
+        = f.label 'Years in Business*'
+        .input= f.text_field :years_in_business
+      .clearfix
+        = f.label 'Number of Employees*'
+        .input= f.text_field :number_of_employees
+      .clearfix
+        = f.label 'Business Website'
+        .input= f.text_field :business_website
+      .clearfix
+        = f.label 'Phone number*'
+        .input= f.text_field :phone_number
 
+    %fieldset.business_location
+      %legend
+        Business Location
+      .clearfix
+        = f.label 'City*'
+        .input= f.text_field :city
+      .clearfix
+        = f.label 'State*'
+        .input= f.text_field :state_of_residence
+      .clearfix
+        = f.label 'Zip code*'
+        .input= f.text_field :zip
+      .clearfix
+        = f.label 'Email*'
+        .input= f.text_field :email
+      .clearfix
+        = f.label 'Best way to contact you*'
+        .input= f.text_field :contact_method
 
-  #form_right
-    %p
-      = f.label 'City*'
-      .form_field= f.text_field :city
-    %p
-      = f.label 'State*'
-      .form_field= f.text_field :state_of_residence
-    %p
-      = f.label 'Zip code*'
-      .form_field= f.text_field :zip
-    %p
-      = f.label 'Email*'
-      .form_field= f.text_field :email
-    %p
-      = f.label 'Best way to contact you*'
-      .form_field= f.text_field :contact_method
+    %fieldset.business_type
+      %legend
+        Business Type
+      .clearfix
+        .input
+          %ul.inputs-list
+            %label
+              = f.radio_button :business_type, "private_corp", :class => "no_field"
+              %span Private Corporation
+            %label
+              = f.radio_button :business_type, "public_corp", :class => "public_corp"
+              %span Public Corporation
+            %label
+              = f.radio_button :business_type, "partnership", :class => "no_field"
+              %span Partnership
+            %label
+              = f.radio_button :business_type, "non_profit", :class => "no_field"
+              %span Non-Profit
+            %label
+              = f.radio_button :business_type, "sole_proprietor", :class => "no_field"
+              %span Sole Proprietor
+            %label
+              = f.radio_button :business_type, "other", :class => "other_corp"
+              %span Other
+      .clearfix.market_symbol
+        = f.label 'Market Symbol*'
+        .input= f.text_field :market_symbol
+      .clearfix.other_field
+        = f.label 'Please enter other type here:*'
+        .input= f.text_field :other_type
+      .clearfix
+        = f.fields_for :attachments do |a|
+          = a.label "Attachment"
+          .input= a.file_field :document
 
-    %h1 Select your business type:
-
-    %p
-      = f.radio_button :business_type, "private_corp", :class => "no_field"
-      = f.label 'Private Corporation'
-    %p
-      = f.radio_button :business_type, "public_corp", :class => "public_corp"
-      = f.label 'Public Corporation'
-    %p.market_symbol
-      = f.label 'Market Symbol*'
-      = f.text_field :market_symbol
-    %p
-      = f.radio_button :business_type, "partnership", :class => "no_field"
-      = f.label 'Partnership'
-    %p
-      = f.radio_button :business_type, "non_profit", :class => "no_field"
-      = f.label 'Non-Profit'
-    %p
-      = f.radio_button :business_type, "sole_proprietor", :class => "no_field"
-      = f.label 'Sole Proprietor'
-    %p
-      = f.radio_button :business_type, "other", :class => "other_corp"
-      = f.label 'Other'
-    %p.other_field
-      = f.label 'Please enter other type here:*'
-      = f.text_field :other_type
-    %p
-      = f.fields_for :attachments do |a|
-        = a.label "Attachment"
-        = a.file_field :document
-
-  #submit
-    = f.submit
-    %p
-    = link_to 'Back', client_applications_path
-
+    .actions
+      = f.submit :class => 'btn primary'
+      = link_to 'Back', client_applications_path, :class => 'btn'
 
 :javascript
   $(document).ready(function(){

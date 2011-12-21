@@ -22,14 +22,13 @@
         %h3 Your application has been submitted!
         .submitted
           Isotope11 is currently reviewing your application, and will email when further information is required.
-          %p
-          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+        = link_to 'DEVELOPMENT - continue app', edit_client_application_path(current_user.client_application)
       - if current_user.client_application.state == "requested"
         %h3 We need more information!
         .requested
           Isotope11 has reviewed your application, and needs more information from you.
           %p
-          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+          = link_to 'Please click here to continue application.', edit_client_application_path(current_user.client_application)
       - if current_user.client_application.state == "responded"
         %h3 You have responded to Isotope's request!
         .responded
@@ -37,7 +36,7 @@
           %p
           Please be patient as this could take a few days. You will receive an email when complete.
           %p
-          = link_to 'Please click here to complete application.', edit_client_application_path(current_user.client_application)
+        = link_to 'DEVELOPMENT - continue app', edit_client_application_path(current_user.client_application)
       - if current_user.client_application.state == "completed"
         %h3 Your application is complete!
         .completed

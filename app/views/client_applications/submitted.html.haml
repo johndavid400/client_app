@@ -1,51 +1,68 @@
 %center
-  %h2 Application Submitted
   %h1 Isotope11 - request information:
-  %h3 The client has submitted their appplication, and it is awaiting review from Isotope11.
+  %h2 Application Submitted
 
-.form_container
-  %h4 Please select any forms that you would like to request from the client:
+.form_wrapper
   = form_for @application, :html => { :multipart => true } do |f|
-    .field
-      %p
+    %fieldset
+      %legend
+        Request Documents
+      %span
         = f.check_box :articles_of_incorporation_file_name, :class => "documents"
         = 'Articles of Incorporation'
       %p
+      %span
         = f.check_box :proof_of_insurance_file_name, :class => "documents"
         = 'Proof of Insurance'
       %p
+      %span
         = f.check_box :business_license_file_name, :class => "documents"
         = 'Business License'
       %p
+      %span
         = f.check_box :partnership_agreement_file_name, :class => "documents"
         = 'Partnership Agreement'
       %p
+      %span
         = f.check_box :limited_partnership_file_name, :class => "documents"
         = 'Limited Partnership LP1'
       %p
+      %span
         = f.check_box :charter_file_name, :class => "documents"
         = 'Charter and By-Laws'
       %p
+      %span
         = f.check_box :irs_tax_exempt_status_form_file_name, :class => "documents"
         = 'IRS Tax Exemption Status Form'
       %p
+      %span
         = f.check_box :bank_statement_file_name, :class => "documents"
         = 'Bank Statement'
       %p
+      %span
         = f.check_box :tax_return_one_file_name, :class => "documents"
         = 'Tax Return for last year'
       %p
+      %span
         = f.check_box :tax_return_two_file_name, :class => "documents"
         = 'Tax Return for the year before last'
       %p
+      %span
         = f.check_box :litigation_file_name, :class => "documents"
         = 'Litigation response'
       %p
+
+    %fieldset
+      %legend
+        Request Forms
+      %span
         = f.check_box :principal_information, :class => "documents"
         = 'Principal Information form'
       %p
+      %span
         = f.check_box :banking_information, :class => "documents"
         = 'Banking Information form'
+      %p
 
     = f.submit "Submit"
 

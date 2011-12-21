@@ -1,18 +1,20 @@
-%h3 Banking Information Form
-%p
-= f.fields_for :banking_information_forms do |b|
-  = b.label 'Bank Name'
-  = b.text_field :bank_name
-  %p
-  = b.label 'Bank Address'
-  = b.text_field :bank_address
-  %p
-  = b.label 'Contact Person'
-  = b.text_field :contact_person
-  %p
-  = b.label 'Bank Phone Number'
-  = b.text_field :phone_number
-  %p
-  = b.label 'Previous Banking Institution'
-  = b.text_field :previous_bank
-  %p
+- if @application.banking_information?
+  %fieldset
+    %legend
+      Banking Information
+    = f.fields_for :banking_information_forms do |b|
+      .clearfix
+        = b.label 'Bank Name'
+        .input= b.text_field :bank_name
+      .clearfix
+        = b.label 'Bank Address'
+        .input= b.text_field :bank_address
+      .clearfix
+        = b.label 'Contact Person'
+        .input= b.text_field :contact_person
+      .clearfix
+        = b.label 'Bank Phone Number'
+        .input= b.text_field :phone_number
+      .clearfix
+        = b.label 'Previous Banking Institution'
+        .input= b.text_field :previous_bank
