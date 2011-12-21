@@ -13,6 +13,13 @@
         <div class='container'>
           <a class='brand' href='#'>Isotope11 Client Application</a>
           <%= yield :title %>
+          <div id="session_options">
+            <% if current_user %>
+              <%= link_to('Sign out', destroy_user_session_path, :method => :delete, :class => "btn danger") %>
+            <% else %>
+              <%= link_to('Sign In', '#', :class => "btn success") %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

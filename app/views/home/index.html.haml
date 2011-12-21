@@ -1,16 +1,19 @@
 %h1.title Isotope11 Client Application
 .content
   - if current_user
-    .button= link_to('Logout', destroy_user_session_path, :method => :delete)
     - if current_user.admin
       %table
         %tr
+          %th Client company
           %th Client email
+          %th Application state
           %th edit
           %th delete
         - @applications.each do |app|
           %tr
+            %td= app.business_name
             %td= app.email
+            %td= app.state
             %td= link_to 'Edit', edit_client_application_path(app)
             %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
     - else
@@ -22,13 +25,14 @@
         %h3 Your application has been submitted!
         .submitted
           Isotope11 is currently reviewing your application, and will email when further information is required.
-        = link_to 'DEVELOPMENT - continue app', edit_client_application_path(current_user.client_application)
+          %p
+          = link_to 'Continue (temporary link)', edit_client_application_path(current_user.client_application), :class => "btn primary"
       - if current_user.client_application.state == "requested"
         %h3 We need more information!
         .requested
           Isotope11 has reviewed your application, and needs more information from you.
           %p
-          = link_to 'Please click here to continue application.', edit_client_application_path(current_user.client_application)
+          = link_to 'Continue Application.', edit_client_application_path(current_user.client_application), :class => "btn success"
       - if current_user.client_application.state == "responded"
         %h3 You have responded to Isotope's request!
         .responded
@@ -36,7 +40,7 @@
           %p
           Please be patient as this could take a few days. You will receive an email when complete.
           %p
-        = link_to 'DEVELOPMENT - continue app', edit_client_application_path(current_user.client_application)
+          = link_to 'Continue (temporary link)', edit_client_application_path(current_user.client_application), :class => "btn primary"
       - if current_user.client_application.state == "completed"
         %h3 Your application is complete!
         .completed
@@ -44,14 +48,11 @@
           %p
           We will contact you soon.
   - else
-    %center
-      %h3 Click below to start a new application:
-    .button= link_to "New Application", new_client_application_path
-    %center
-      %h3 or Sign-in to edit your existing application:
+    %h3 Click below to start a new application:
+    = link_to "New Application", new_client_application_path, :class => "btn info"
+
     .sign_in
-      %center
-        %h3 Sign in
+      %h3 Sign in
       = form_tag user_session_path do
         = label_tag 'email'
         = text_field_tag 'user[email]'
@@ -62,6 +63,13 @@
         = check_box_tag 'user[remember_me]'
         = 'Remember me'
         %p
-        %button Sign in
+        = button_to "Sign in", "#"
         = link_to "Forgot your password?", new_password_path('user')
 
+:javascript
+  $(document).ready(function(){
+    $('.sign_in').hide();
+    $('#session_options').click(function(){
+      $(".sign_in").toggle();
+    });
+  });
