@@ -1,17 +1,17 @@
 - if @application.litigation_file_name == "1"
   %fieldset
     %legend
-      Litigation?
+      Litigation Form
     %span
+      %h5 Have you or your company been involved in any litigation in the past 5 years?
       = 'No'
       = radio_button_tag 'litigation', "no", :checked => true
       = 'Yes'
       = radio_button_tag 'litigation', "yes"
-    %span
     .litigation_fields
+      %h5 Please describe the nature of the litigation and upload any documents.
       .clearfix
-        = f.label 'Please describe litigation'
-        .input= f.text_area :litigation_description, :class => 'xxlarge'
+        = f.text_area :litigation_description, :class => 'xxlarge'
       .clearfix
         = f.label 'Attachments'
         .input= f.file_field :litigation_file_name

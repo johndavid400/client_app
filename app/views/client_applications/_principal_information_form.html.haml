@@ -64,14 +64,14 @@
           .input= p.text_field :county
         %p
 
-        %h5 Have you lived at your current address for less than 3 years?
+        %h5 Have you lived at your current address for more than 3 years?
         %p
         %span
           = 'Yes'
           = radio_button_tag 'address', "yes", :checked => true
           = 'No'
           = radio_button_tag 'address', "no"
-        %span.prev_address_fields
+        .prev_address_fields
           %h5 Previous Address Information
           .clearfix
             = p.label 'Previous Street Address'
@@ -88,4 +88,3 @@
           .clearfix
             = p.label 'Previous County'
             .input= p.text_field :prev_county
-        %p

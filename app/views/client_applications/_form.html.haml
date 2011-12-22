@@ -108,24 +108,24 @@
     $('.market_symbol').hide();
     $('.other_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
-        $(".other_field").show();
-        $(".market_symbol").hide();
+        $(".other_field").fadeIn("slow");
+        $(".market_symbol").fadeOut("slow");
       }
       else {
-        $(".other_field").hide();
+        $(".other_field").fadeOut("slow");
       }
     });
     $('.public_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
-        $(".other_field").hide();
-        $(".market_symbol").show();
+        $(".other_field").fadeOut("slow");
+        $(".market_symbol").fadeIn("slow");
       }
       else {
-        $(".market_symbol").hide();
+        $(".market_symbol").fadeOut("slow");
       }
     });
     $('.no_field').click(function(){
-      $(".other_field").hide();
-      $(".market_symbol").hide();
+      $(".other_field").fadeOut("slow");
+      $(".market_symbol").fadeOut("slow");
     });
   });
