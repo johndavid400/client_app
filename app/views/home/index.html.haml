@@ -74,7 +74,7 @@
   $(document).ready(function(){
     $('.sign_in').hide();
     $('#session_options').click(function(){
-      $(".sign_in").toggle();
+      $(".sign_in").fadeToggle('slow', 'linear');
     });
     $("table#table-sort").tablesorter({ sortList: [[1,0]] });
   });
