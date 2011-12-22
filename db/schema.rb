@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219194443) do
+ActiveRecord::Schema.define(:version => 20111222203804) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
   create_table "principal_information_forms", :force => true do |t|
     t.string   "name"
     t.string   "alternate_name"
-    t.string   "ssn"
     t.string   "dob"
     t.string   "dl_number"
     t.string   "dl_state"
@@ -102,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20111219194443) do
     t.integer  "client_application_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_ssn"
   end
 
   create_table "users", :force => true do |t|

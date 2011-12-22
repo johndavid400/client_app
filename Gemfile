@@ -13,6 +13,7 @@ gem 'state_machine'
 gem "paperclip", "~> 2.4"
 gem 'twitter-bootstrap-rails'
 gem 'devise'
+gem 'attr_encrypted'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
