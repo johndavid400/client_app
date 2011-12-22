@@ -1,4 +1,4 @@
-#session_options{
+.session_options{
   position: absolute;
   left: 950px;
   top: 5px;
@@ -18,3 +18,10 @@
   -moz-border-radius: 5px;
 }
 
+.login {
+  @extend .session_options;
+}
+
+.logout {
+  @extend .session_options;
+}

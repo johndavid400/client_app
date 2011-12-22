@@ -13,21 +13,47 @@
         <div class='container'>
           <a class='brand' href='#'>Isotope11 Client Application</a>
           <%= yield :title %>
-          <div id="session_options">
-            <% if current_user %>
-              <%= link_to('Sign out', destroy_user_session_path, :method => :delete, :class => "btn danger") %>
-            <% else %>
-              <%= link_to('Sign In', '#', :class => "btn success") %>
-            <% end %>
-          </div>
+          <% if current_user %>
+            <%= link_to('Sign out', destroy_user_session_path, :method => :delete, :class => "btn danger logout") %>
+          <% else %>
+            <%= link_to('Sign In', '#', :class => "btn success login") %>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <div class="sign_in">
+        <h3>Sign in</h3>
+        <%= form_tag user_session_path do %>
+          <p>
+            <%= label_tag 'email' %>
+            <%= text_field_tag 'user[email]' %>
+          </p>
+            <%= label_tag 'password' %>
+            <%= password_field_tag 'user[password]' %>
+          </p>
+          <p>
+            <%= check_box_tag 'user[remember_me]' %>
+            <%= 'Remember me' %>
+          </p>
+          <p>
+            <%= button_to "Sign in", "#" %>
+            <%= link_to "Forgot your password?", new_password_path('user') %>
+          </p>
+        <% end %>
+      </div>
       <%= yield %>
       <br class="clear">
     </div>
+    <script>
+      $(document).ready(function(){
+        $('.sign_in').hide();
+        $('.login').click(function(){
+          $(".sign_in").fadeToggle('slow', 'linear');
+        });
+      });
+    </script>
   </body>
 </html>

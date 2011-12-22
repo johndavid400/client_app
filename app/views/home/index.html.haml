@@ -55,26 +55,7 @@
     %h3 Click below to start a new application:
     = link_to "New Application", new_client_application_path, :class => "btn info"
 
-    .sign_in
-      %h3 Sign in
-      = form_tag user_session_path do
-        = label_tag 'email'
-        = text_field_tag 'user[email]'
-        %p
-        = label_tag 'password'
-        = password_field_tag 'user[password]'
-        %p
-        = check_box_tag 'user[remember_me]'
-        = 'Remember me'
-        %p
-        = button_to "Sign in", "#"
-        = link_to "Forgot your password?", new_password_path('user')
-
 :javascript
   $(document).ready(function(){
-    $('.sign_in').hide();
-    $('#session_options').click(function(){
-      $(".sign_in").fadeToggle('slow', 'linear');
-    });
     $("table#table-sort").tablesorter({ sortList: [[1,0]] });
   });
