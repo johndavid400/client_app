@@ -2,43 +2,61 @@
   %h2 Responded
   %h1 Isotope11 - The client has finished their application:
   %h3
-    Please contact the client to follow up:
+    Please contact 
+    = @application.business_name 
+    to follow up:
     = @application.phone_number
 
-.form_container
-  %ul
-    %li= @application.business_name
-    %p
-    %li= @application.dba_name
-    %p
-    %li= @application.parent_company
-    %p
-    %li= @application.taxpayer_id_number
-    %p
-    %li= @application.years_in_business
-    %p
-    %li= @application.number_of_employees
-    %p
-    %li= @application.business_website
-    %p
-    %li= @application.contact_method
-    %p
-    %li= @application.business_address
-    %p
-    %li= @application.city
-    %p
-    %li= @application.state
-    %p
-    %li= @application.zip
-    %p
-    %li= @application.billing_address
-    %p
-    %li= @application.phone_number
-    %p
-    %li= @application.email
-    %p
-
-.form_attachments
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th Client Information
+  %tbody
+    %tr
+      %th Business Name
+      %td= @application.business_name
+    %tr
+      %th DBA Name
+      %td= @application.dba_name
+    %tr
+      %th Parent Company
+      %td= @application.parent_company
+    %tr
+      %th Taxpayer ID
+      %td= @application.taxpayer_id_number
+    %tr
+      %th Years in Business
+      %td= @application.years_in_business
+    %tr
+      %th Number of Employees
+      %td= @application.number_of_employees
+    %tr
+      %th Business Website
+      %td= @application.business_website
+    %tr
+      %th Contact Method
+      %td= @application.contact_method
+    %tr
+      %th Business Address
+      %td= @application.business_address
+    %tr
+      %th City
+      %td= @application.city
+    %tr
+      %th State
+      %td= @application.state_of_residence
+    %tr
+      %th Zip code
+      %td= @application.zip
+    %tr
+      %th Billing Address
+      %td= @application.billing_address
+    %tr
+      %th Phone number
+      %td= @application.phone_number
+    %tr
+      %th Email
+      %td= @application.email
 
 %center
   %h2

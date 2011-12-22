@@ -1,15 +1,53 @@
 %h1= @application.business_name
-
-.submitted
-  %h1 Submitted
-
-.requested
-  %h1 Requested
-
-.responded
-  %h1 Responded
-
-.completed
-  %h1 Completed
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th Client Information
+  %tbody
+    %tr
+      %th Business Name
+      %td= @application.business_name
+    %tr
+      %th DBA Name
+      %td= @application.dba_name
+    %tr
+      %th Parent Company
+      %td= @application.parent_company
+    %tr
+      %th Taxpayer ID
+      %td= @application.taxpayer_id_number
+    %tr
+      %th Years in Business
+      %td= @application.years_in_business
+    %tr
+      %th Number of Employees
+      %td= @application.number_of_employees
+    %tr
+      %th Business Website
+      %td= @application.business_website
+    %tr
+      %th Contact Method
+      %td= @application.contact_method
+    %tr
+      %th Business Address
+      %td= @application.business_address
+    %tr
+      %th City
+      %td= @application.city
+    %tr
+      %th State
+      %td= @application.state_of_residence
+    %tr
+      %th Zip code
+      %td= @application.zip
+    %tr
+      %th Billing Address
+      %td= @application.billing_address
+    %tr
+      %th Phone number
+      %td= @application.phone_number
+    %tr
+      %th Email
+      %td= @application.email
 
 = link_to 'Edit', edit_client_application_path(@application)
