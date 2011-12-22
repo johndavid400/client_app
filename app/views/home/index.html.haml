@@ -1,21 +1,25 @@
-%h1.title Isotope11 Client Application
+%h1.title Isotope11 Client Applications
 .content
   - if current_user
     - if current_user.admin
-      %table
-        %tr
-          %th Client company
-          %th Client email
-          %th Application state
-          %th edit
-          %th delete
-        - @applications.each do |app|
+      %table.bordered-table.zebra-striped#table-sort
+        %thead
           %tr
-            %td= app.business_name
-            %td= app.email
-            %td= app.state
-            %td= link_to 'Edit', edit_client_application_path(app)
-            %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
+            %th Client company
+            %th Client email
+            %th Application state
+            %th Created on
+            %th edit
+            %th delete
+        %tbody
+          - @applications.each do |app|
+            %tr
+              %td= link_to app.business_name, client_application_path(app)
+              %td= app.email
+              %td= app.state
+              %td= app.created_at
+              %td= link_to 'Edit', edit_client_application_path(app)
+              %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
     - else
       %p
       = 'state: '
@@ -72,4 +76,5 @@
     $('#session_options').click(function(){
       $(".sign_in").toggle();
     });
+    $("table#table-sort").tablesorter({ sortList: [[1,0]] });
   });
