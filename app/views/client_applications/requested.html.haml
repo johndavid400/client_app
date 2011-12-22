@@ -15,15 +15,15 @@
     $('.litigation_fields').hide();
     $('.prev_address_fields').hide();
     $('#litigation_yes').click(function(){
-      $(".litigation_fields").show();
+      $(".litigation_fields").fadeIn("slow");
     });
     $('#litigation_no').click(function(){
-      $(".litigation_fields").hide();
+      $(".litigation_fields").fadeOut("slow");
     });
     $('#address_yes').click(function(){
-      $(".prev_address_fields").hide();
+      $(".prev_address_fields").fadeOut("slow");
     });
     $('#address_no').click(function(){
-      $(".prev_address_fields").show();
+      $(".prev_address_fields").fadeIn("slow");
     });
   });
