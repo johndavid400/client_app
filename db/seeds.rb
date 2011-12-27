@@ -6,14 +6,25 @@ if @user.save
   puts "Admin user created"
 end
 
-a = ClientApplication.new(:business_name => "Tom's Plumbing", :taxpayer_id_number => "34034903490", :business_address => "293 4th street S.", :business_website => "business.com", :billing_address => "3409 1st street", :parent_company => "ABC Holdings Inc", :dba_name => "Tom's plumbing", :city => "Birmingham", :state_of_residence => "Alabama", :contact_method => "email", :phone_number => "205-434-3434", :years_in_business => "12", :number_of_employees => "23", :zip => "35206", :email => "tom@tom.com")
+# create States
+
+states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+
+states.each do |n|
+  UnitedState.create :name => n
+end
+
+# create apps
+
+a = ClientApplication.new(:business_name => "Tom's Plumbing", :taxpayer_id_number => "34034903490", :business_address => "293 4th street S.", :business_website => "business.com", :billing_address => "3409 1st street", :parent_company => "ABC Holdings Inc", :dba_name => "Tom's plumbing", :city => "Birmingham", :united_state_id => 1, :contact_method => "email", :area_code => "205", :phone_first => "434", :phone_last => "3434", :years_in_business => "12", :number_of_employees => "23", :zip => "35206", :email => "tom@tom.com")
 aa = User.create :email => a.email, :password => "password", :password_confirmation => "password"
 a.user_id = aa.id
 a.save
+debugger
 a.submit!
 puts "App 1 created"
 
-b = ClientApplication.create(:business_name => "John's Carpentry", :taxpayer_id_number => "33422333490", :business_address => "343 6th street S.", :business_website => "carpentry.com", :billing_address => "9489 9th street", :parent_company => "XYZ Holdings Inc", :dba_name => "John's Carpentry", :city => "Birmingham", :state_of_residence => "Alabama", :contact_method => "email", :phone_number => "205-323-3232", :years_in_business => "5", :number_of_employees => "6", :zip => "35206", :email => "john@john.com")
+b = ClientApplication.create(:business_name => "John's Carpentry", :taxpayer_id_number => "33422333490", :business_address => "343 6th street S.", :business_website => "carpentry.com", :billing_address => "9489 9th street", :parent_company => "XYZ Holdings Inc", :dba_name => "John's Carpentry", :city => "Birmingham", :united_state_id => 1, :contact_method => "email", :area_code => "205", :phone_first => "323", :phone_last => "3232", :years_in_business => "5", :number_of_employees => "6", :zip => "35206", :email => "john@john.com")
 bb = User.create :email => b.email, :password => "password", :password_confirmation => "password"
 b.user_id = bb.id
 b.save
@@ -23,7 +34,7 @@ b.save
 b.requesting!
 puts "App 2 created"
 
-c = ClientApplication.create(:business_name => "Mark's Lawn service", :taxpayer_id_number => "09092332390", :business_address => "389 8th street S.", :business_website => "markslawn.com", :billing_address => "903 4th street", :parent_company => "Grass Cutters Inc", :dba_name => "Mark's Lawn service", :city => "Birmingham", :state_of_residence => "Alabama", :contact_method => "email", :phone_number => "205-234-0434", :years_in_business => "32", :number_of_employees => "13", :zip => "35206", :email => "mark@mark.com")
+c = ClientApplication.create(:business_name => "Mark's Lawn service", :taxpayer_id_number => "09092332390", :business_address => "389 8th street S.", :business_website => "markslawn.com", :billing_address => "903 4th street", :parent_company => "Grass Cutters Inc", :dba_name => "Mark's Lawn service", :city => "Birmingham", :united_state_id => 1, :contact_method => "email", :area_code => "205", :phone_first => "234", :phone_last => "0434", :years_in_business => "32", :number_of_employees => "13", :zip => "35206", :email => "mark@mark.com")
 cc = User.create :email => c.email, :password => "password", :password_confirmation => "password"
 c.user_id = cc.id
 c.save
@@ -34,7 +45,7 @@ c.requesting!
 c.respond!
 puts "App 3 created"
 
-d = ClientApplication.create(:business_name => "Terry's Painting", :taxpayer_id_number => "3413490409", :business_address => "123 Thomas street", :business_website => "business.com", :billing_address => "39 2nd street", :parent_company => "Painters Inc", :dba_name => "Terry's painting", :city => "Birmingham", :state_of_residence => "Alabama", :contact_method => "email", :phone_number => "205-433-8884", :years_in_business => "3", :number_of_employees => "3", :zip => "35206", :email => "terry@terry.com")
+d = ClientApplication.create(:business_name => "Terry's Painting", :taxpayer_id_number => "3413490409", :business_address => "123 Thomas street", :business_website => "business.com", :billing_address => "39 2nd street", :parent_company => "Painters Inc", :dba_name => "Terry's painting", :city => "Birmingham", :united_state_id => 1, :contact_method => "email", :area_code => "205", :phone_first => "433", :phone_last => "8884", :years_in_business => "3", :number_of_employees => "3", :zip => "35206", :email => "terry@terry.com")
 dd = User.create :email => d.email, :password => "password", :password_confirmation => "password"
 d.user_id = dd.id
 d.save
@@ -47,3 +58,5 @@ d.complete!
 puts "App 4 created"
 
 puts "Success!"
+
+

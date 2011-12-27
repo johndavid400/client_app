@@ -9,6 +9,7 @@ class ClientApplication < ActiveRecord::Base
   before_save :make_phone
 
   belongs_to :user
+  has_one :united_state
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
   has_many :banking_information_forms, :dependent => :destroy
