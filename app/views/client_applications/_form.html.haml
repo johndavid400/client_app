@@ -93,9 +93,12 @@
       .clearfix.other_field
         = f.label 'Please enter other type here:*'
         .input= f.text_field :other_type
+
+    %fieldset.business_type
+      %legend
+        Attachments:
       .clearfix
         = f.fields_for :attachments do |a|
-          = a.label "Attachment"
           .input= a.file_field :document
 
     .actions

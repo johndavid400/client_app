@@ -11,9 +11,9 @@ class ClientApplicationsController < ApplicationController
   def new
     @application = ClientApplication.new
     # let's make 3 attachments for now
-    @application.attachments.build
-    @application.attachments.build
-    @application.attachments.build
+    6.times do
+      @application.attachments.build
+    end
   end
 
   def create
@@ -28,7 +28,7 @@ class ClientApplicationsController < ApplicationController
         flash[:notice] = "Application submitted successfully"
       end
     else
-      redirect_to :back
+      render 'new'
       error_message = @application.errors.full_messages.first
       flash[:error] = "Application Failed to submit! " + " " + error_message
     end

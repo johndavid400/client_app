@@ -1,5 +1,6 @@
 class ClientApplication < ActiveRecord::Base
 
+  validates_presence_of :email, :business_name
   belongs_to :user
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
