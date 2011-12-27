@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20111227213812) do
     t.string   "parent_company"
     t.string   "dba_name"
     t.string   "city"
-    t.string   "state_of_residence"
     t.string   "state"
     t.string   "contact_method"
     t.string   "phone_number"

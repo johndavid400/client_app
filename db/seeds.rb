@@ -20,7 +20,6 @@ a = ClientApplication.new(:business_name => "Tom's Plumbing", :taxpayer_id_numbe
 aa = User.create :email => a.email, :password => "password", :password_confirmation => "password"
 a.user_id = aa.id
 a.save
-debugger
 a.submit!
 puts "App 1 created"
 
