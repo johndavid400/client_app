@@ -1,6 +1,13 @@
 class ClientApplication < ActiveRecord::Base
 
   validates_presence_of :email, :business_name
+  validates_format_of :email, :with => /(\S+)@(\w+.\w+)/
+  attr_accessor :area_code,:phone_first,:phone_last
+  validates_format_of :area_code, :with => /[0-9]{3}/
+  validates_format_of :phone_first, :with => /[0-9]{3}/
+  validates_format_of :phone_last, :with => /[0-9]{4}/
+  before_save :make_phone
+
   belongs_to :user
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
@@ -21,8 +28,6 @@ class ClientApplication < ActiveRecord::Base
   has_attached_file :tax_return_one
   has_attached_file :tax_return_two
   has_attached_file :litigation
-
- # validates_presence_of :business_name, :email, :phone_number, :contact_method
 
   state_machine :state, :initial => :blank do
     after_transition :blank => :submitted, :do => :after_submit
@@ -67,6 +72,10 @@ class ClientApplication < ActiveRecord::Base
 
   def after_complete
     Client.client_email(self).deliver
+  end
+
+  def make_phone
+    self.phone_number = @area_code + "-" + @phone_first + "-" +  @phone_last
   end
 
 end

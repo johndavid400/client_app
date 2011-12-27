@@ -34,8 +34,13 @@
         = f.label 'Business Website'
         .input= f.text_field :business_website
       .clearfix
-        = f.label 'Phone number*'
-        .input= f.text_field :phone_number
+        = f.label 'Phone number*', :class => "phone"
+        = "("
+        = f.text_field :area_code, :maxlength => 3, :class => "text"
+        = ")"
+        = f.text_field :phone_first, :maxlength => 3, :class => "text"
+        = "-"
+        = f.text_field :phone_last, :maxlength => 4, :class => "text"
 
     %fieldset.business_location
       %legend
@@ -58,9 +63,27 @@
       .clearfix
         = f.label 'Email*'
         .input= f.text_field :email
+
+    %fieldset.business_type
+      %legend
+        Contact Method
       .clearfix
-        = f.label 'Best way to contact you*'
-        .input= f.text_field :contact_method
+        .input
+          %ul.inputs-list
+            %label
+              = f.radio_button :contact_method, "phone", :class => "contact_no_field"
+              %span Phone
+            %label
+              = f.radio_button :contact_method, "email", :class => "contact_no_field"
+              %span Email
+            %label
+              = f.radio_button :contact_method, "text", :class => "contact_no_field"
+              %span Text Message
+            %label
+              = f.radio_button :contact_method, "other", :class => "other_contact_method"
+              %span Other
+          = f.text_field :contact_method, :class => "other_contact_field"
+
 
     %fieldset.business_type
       %legend
@@ -100,6 +123,7 @@
       .clearfix
         = f.fields_for :attachments do |a|
           .input= a.file_field :document
+        = link_to 'add attachment', "#", :class => 'attachment'
 
     .actions
       = f.submit :class => 'btn primary'
@@ -109,6 +133,7 @@
   $(document).ready(function(){
     $('.other_field').hide();
     $('.market_symbol').hide();
+    $(".other_contact_field").hide();
     $('.other_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
         $(".other_field").fadeIn("slow");
@@ -130,5 +155,11 @@
     $('.no_field').click(function(){
       $(".other_field").fadeOut("slow");
       $(".market_symbol").fadeOut("slow");
+    });
+    $('.other_contact_method').click(function(){
+      $(".other_contact_field").fadeIn("slow");
+    });
+    $('.contact_no_field').click(function(){
+      $(".other_contact_field").fadeOut("slow");
     });
   });
