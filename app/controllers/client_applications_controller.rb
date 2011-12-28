@@ -45,16 +45,16 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.find(params[:id])
     @application.update_attributes(params[:client_application])
 
-    if @application.state == "submitted"
+    if @application.application_state == "submitted"
       @application.requesting!
       message = "This application has been sent in for request"
-    elsif @application.state == "requested"
+    elsif @application.application_state == "requested"
       @application.respond!
       message = "This application has been sent in for response"
-    elsif @application.state == "responded"
+    elsif @application.application_state == "responded"
       @application.complete!
       message = "This application is complete"
-    elsif @application.state == "completed"
+    elsif @application.application_state == "completed"
       message = "This application is really complete"
     end
     redirect_to "/"

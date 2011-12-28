@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227213812) do
+ActiveRecord::Schema.define(:version => 20111227213732) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(:version => 20111227213812) do
     t.string   "parent_company"
     t.string   "dba_name"
     t.string   "city"
-    t.string   "state"
+    t.string   "application_state"
+    t.string   "state_id"
     t.string   "contact_method"
     t.string   "phone_number"
     t.integer  "years_in_business"
@@ -74,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20111227213812) do
     t.string   "other_type"
     t.text     "project_description"
     t.text     "litigation_description"
-    t.integer  "united_state_id"
   end
 
   create_table "principal_information_forms", :force => true do |t|
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20111227213812) do
     t.string   "encrypted_ssn"
   end
 
-  create_table "united_states", :force => true do |t|
+  create_table "states", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

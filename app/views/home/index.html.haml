@@ -16,28 +16,28 @@
             %tr
               %td= link_to app.business_name, client_application_path(app)
               %td= app.email
-              %td= app.state
+              %td= app.application_state
               %td= app.created_at
               %td= link_to 'Edit', edit_client_application_path(app)
               %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
     - else
       %p
       = 'state: '
-      = current_user.client_application.state
+      = current_user.client_application.application_state
       %p
-      - if current_user.client_application.state == "submitted"
+      - if current_user.client_application.application_state == "submitted"
         %h3 Your application has been submitted!
         .submitted
           Isotope11 is currently reviewing your application, and will email when further information is required.
           %p
           = link_to 'Continue (temporary link)', edit_client_application_path(current_user.client_application), :class => "btn primary"
-      - if current_user.client_application.state == "requested"
+      - if current_user.client_application.application_state == "requested"
         %h3 We need more information!
         .requested
           Isotope11 has reviewed your application, and needs more information from you.
           %p
           = link_to 'Continue Application.', edit_client_application_path(current_user.client_application), :class => "btn success"
-      - if current_user.client_application.state == "responded"
+      - if current_user.client_application.application_state == "responded"
         %h3 You have responded to Isotope's request!
         .responded
           Isotope will now finish processing your application.
@@ -45,7 +45,7 @@
           Please be patient as this could take a few days. You will receive an email when complete.
           %p
           = link_to 'Continue (temporary link)', edit_client_application_path(current_user.client_application), :class => "btn primary"
-      - if current_user.client_application.state == "completed"
+      - if current_user.client_application.application_state == "completed"
         %h3 Your application is complete!
         .completed
           Isotope11 has received your completed application!

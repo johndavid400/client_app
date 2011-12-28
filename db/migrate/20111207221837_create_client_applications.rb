@@ -9,7 +9,8 @@ class CreateClientApplications < ActiveRecord::Migration
       t.string :parent_company
       t.string :dba_name
       t.string :city
-      t.string :state
+      t.string :application_state
+      t.string :state_id
       t.string :contact_method
       t.string :phone_number
       t.integer :years_in_business
