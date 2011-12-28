@@ -121,7 +121,6 @@
       .clearfix
         = f.fields_for :attachments do |a|
           .input= a.file_field :document
-        = link_to 'add attachment', "#", :class => 'attachment'
 
     .actions
       = f.submit :class => 'btn primary'
