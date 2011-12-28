@@ -1,5 +1,6 @@
 class ClientApplication < ActiveRecord::Base
 
+  validates_uniqueness_of :email, :business_name
   validates_presence_of :email, :business_name
   validates_format_of :email, :with => /(\S+)@(\w+.\w+)/
 
@@ -32,7 +33,7 @@ class ClientApplication < ActiveRecord::Base
     after_transition :responded => :completed, :do => :after_complete
 
     event :submit do
-      transition [:blank] => :submitted
+      transition [:blank, :responded] => :submitted
     end
 
     event :requesting do

@@ -52,13 +52,18 @@ class ClientApplicationsController < ApplicationController
       @application.respond!
       message = "This application has been sent in for response"
     elsif @application.application_state == "responded"
-      @application.complete!
-      message = "This application is complete"
+      if @application.returned?
+        @application.submit!
+        message = "This application has been flagged for further review."
+      else
+        @application.complete!
+        message = "This application is complete"
+      end
     elsif @application.application_state == "completed"
       message = "This application is really complete"
     end
     redirect_to "/"
-    flash[:messasge] = message
+    flash[:notice] = message
   end
 
   def destroy
