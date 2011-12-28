@@ -129,9 +129,12 @@
 
 :javascript
   $(document).ready(function(){
+
     $('.other_field').hide();
+    $('.private_corp_type').hide();
     $('.market_symbol').hide();
     $(".other_contact_field").hide();
+
     $('.other_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
         $(".private_corp_type").hide();
@@ -142,6 +145,7 @@
         $(".other_field").fadeOut("slow");
       }
     });
+
     $('.public_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
         $(".other_field").hide();
@@ -152,6 +156,7 @@
         $(".market_symbol").fadeOut("slow");
       }
     });
+
     $('.private_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
         $(".other_field").hide();
@@ -162,14 +167,17 @@
         $(".market_symbol").fadeOut("slow");
       }
     });
+
     $('.no_field').click(function(){
       $(".other_field").fadeOut("slow");
       $(".private_field_type").fadeOut("slow");
       $(".market_symbol").fadeOut("slow");
     });
+
     $('.other_contact_method').click(function(){
       $(".other_contact_field").fadeIn("slow");
     });
+
     $('.contact_no_field').click(function(){
       $(".other_contact_field").fadeOut("slow");
     });
