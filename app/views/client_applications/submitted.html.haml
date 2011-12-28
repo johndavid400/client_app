@@ -47,10 +47,6 @@
         = f.check_box :tax_return_two_file_name, :class => "documents"
         = 'Tax Return for the year before last'
       %p
-      %span
-        = f.check_box :litigation_file_name, :class => "documents"
-        = 'Litigation response'
-      %p
 
     %fieldset
       %legend
@@ -62,6 +58,10 @@
       %span
         = f.check_box :banking_information, :class => "documents"
         = 'Banking Information form'
+      %p
+      %span
+        = f.check_box :litigation_file_name, :class => "documents"
+        = 'Litigation response'
       %p
 
     = f.submit "Submit", :class => "btn success"

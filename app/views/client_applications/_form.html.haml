@@ -34,13 +34,8 @@
         = f.label 'Business Website'
         .input= f.text_field :business_website
       .clearfix
-        = f.label 'Phone number*', :class => "phone"
-        = "("
-        = f.text_field :area_code, :maxlength => 3, :class => "text"
-        = ")"
-        = f.text_field :phone_first, :maxlength => 3, :class => "text"
-        = "-"
-        = f.text_field :phone_last, :maxlength => 4, :class => "text"
+        = f.label 'Phone number*'
+        .input= f.text_field :phone_number
 
     %fieldset.business_location
       %legend
