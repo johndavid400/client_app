@@ -87,7 +87,7 @@
         .input
           %ul.inputs-list
             %label
-              = f.radio_button :business_type, "private_corp", :class => "no_field"
+              = f.radio_button :business_type, "private_corp", :class => "private_corp"
               %span Private Corporation
             %label
               = f.radio_button :business_type, "public_corp", :class => "public_corp"
@@ -105,6 +105,9 @@
               = f.radio_button :business_type, "other", :class => "other_corp"
               %span Other
 
+      .clearfix.private_corp_type
+        = f.label 'Private Corporation Type*'
+        .input= f.text_field :private_corp_type
       .clearfix.market_symbol
         = f.label 'Market Symbol*'
         .input= f.text_field :market_symbol
@@ -131,8 +134,9 @@
     $(".other_contact_field").hide();
     $('.other_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
+        $(".private_corp_type").hide();
+        $(".market_symbol").hide();
         $(".other_field").fadeIn("slow");
-        $(".market_symbol").fadeOut("slow");
       }
       else {
         $(".other_field").fadeOut("slow");
@@ -140,8 +144,19 @@
     });
     $('.public_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
-        $(".other_field").fadeOut("slow");
+        $(".other_field").hide();
+        $(".private_corp_type").hide();
         $(".market_symbol").fadeIn("slow");
+      }
+      else {
+        $(".market_symbol").fadeOut("slow");
+      }
+    });
+    $('.private_corp').click(function(){
+      if ($(this).attr("checked") == "checked") {
+        $(".other_field").hide();
+        $(".market_symbol").hide();
+        $(".private_corp_type").fadeIn("slow");
       }
       else {
         $(".market_symbol").fadeOut("slow");
@@ -149,6 +164,7 @@
     });
     $('.no_field').click(function(){
       $(".other_field").fadeOut("slow");
+      $(".private_field_type").fadeOut("slow");
       $(".market_symbol").fadeOut("slow");
     });
     $('.other_contact_method').click(function(){

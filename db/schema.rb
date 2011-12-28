@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20111227213732) do
     t.string   "business_type"
     t.string   "market_symbol"
     t.string   "other_type"
+    t.string   "private_corp_type"
     t.text     "project_description"
     t.text     "litigation_description"
   end

@@ -3,5 +3,6 @@ class AddBusinessTypesToClientApplications < ActiveRecord::Migration
     add_column :client_applications, :business_type, :string
     add_column :client_applications, :market_symbol, :string
     add_column :client_applications, :other_type, :string
+    add_column :client_applications, :private_corp_type, :string
   end
 end
