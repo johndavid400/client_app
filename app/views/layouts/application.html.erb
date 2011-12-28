@@ -29,10 +29,11 @@
         <%= form_tag user_session_path do %>
           <p>
             <%= label_tag 'email' %>
-            <%= text_field_tag 'user[email]' %>
+            <div class="input"><%= text_field_tag 'user[email]' %></div>
           </p>
+          <p>
             <%= label_tag 'password' %>
-            <%= password_field_tag 'user[password]' %>
+            <div class="input"><%= password_field_tag 'user[password]' %></div>
           </p>
           <p>
             <%= check_box_tag 'user[remember_me]' %>
@@ -47,13 +48,5 @@
       <%= yield %>
       <br class="clear">
     </div>
-    <script>
-      $(document).ready(function(){
-        $('.sign_in').hide();
-        $('.login').click(function(){
-          $(".sign_in").fadeToggle('slow', 'linear');
-        });
-      });
-    </script>
   </body>
 </html>

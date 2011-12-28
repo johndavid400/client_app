@@ -7,3 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function(){
+  $('.sign_in').hide();
+  $('.login').click(function(){
+    $(".sign_in").fadeToggle('slow', 'linear');
+  });
+});
