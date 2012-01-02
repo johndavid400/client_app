@@ -25,5 +25,4 @@ Feature: Authentication
     And I fill in "user_password" with "password"
     When I click "Sign in"
     And I follow "Sign out"
-    Then show me the page
     Then I should see "Signed out successfully"

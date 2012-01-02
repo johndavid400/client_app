@@ -16,3 +16,12 @@ Given /^an application exists with email "([^"]*)"$/ do |email|
   @application.update_attributes(:user_id => @user.id)
 end
 
+Given /^I am an authenticated admin user$/ do
+  step %(an admin user exists)
+  visit root_path
+  fill_in('user_email', :with => 'admin@example.com')
+  fill_in('user_password', :with => 'password')
+  click_on("Sign in")
+  step %(show me the page)
+end
+
