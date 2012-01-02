@@ -17,8 +17,8 @@
             <%= link_to('Sign out', destroy_user_session_path, :method => :delete, :class => "btn danger logout") %>
           <% else %>
             <%= form_tag user_session_path do %>
-              <%= text_field_tag 'user[email]', nil, :class => "pull-left" %>
-              <%= password_field_tag 'user[password]', nil, :class => "pull-left" %>
+              <%= text_field_tag 'user[email]', nil, :class => "pull-left login" %>
+              <%= password_field_tag 'user[password]', nil, :class => "pull-left login" %>
               <%= submit_tag "Sign in", :class => "btn success pull-left" %>
             <% end %>
           <% end %>
