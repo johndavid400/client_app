@@ -1,9 +1,6 @@
-.session_options{
-  position: absolute;
-  left: 950px;
-  top: 5px;
+.login{
+  margin-top: 5px;
 }
-
 .sign_in {
   position: absolute;
   font-color: white;
@@ -16,14 +13,6 @@
   border: gray solid 1px;
   padding: 10px;
   -moz-border-radius: 5px;
-}
-
-.login {
-  @extend .session_options;
-}
-
-.logout {
-  @extend .session_options;
 }
 
 .text {
