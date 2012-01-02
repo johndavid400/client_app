@@ -26,14 +26,14 @@ class ClientApplication < ActiveRecord::Base
   has_attached_file :tax_return_two
   has_attached_file :litigation
 
-  state_machine :application_state, :initial => :blank do
-    after_transition :blank => :submitted, :do => :after_submit
+  state_machine :application_state, :initial => :incomplete do
+    after_transition :incomplete => :submitted, :do => :after_submit
     after_transition :submitted => :requested, :do => :after_request
     after_transition :requested => :responded, :do => :after_respond
     after_transition :responded => :completed, :do => :after_complete
 
     event :submit do
-      transition [:blank, :responded] => :submitted
+      transition [:incomplete, :responded] => :submitted
     end
 
     event :requesting do
@@ -48,7 +48,7 @@ class ClientApplication < ActiveRecord::Base
       transition [:responded] => :completed
     end
 
-    state :blank
+    state :incomplete
     state :submitted
     state :requested
     state :responded
