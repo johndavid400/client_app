@@ -14,6 +14,7 @@ gem "paperclip", "~> 2.4"
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'attr_encrypted'
+gem 'css3-progress-bar-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'

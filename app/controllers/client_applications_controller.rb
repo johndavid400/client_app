@@ -20,6 +20,7 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.new(params[:client_application])
     if @application.save
       @application.submit!
+      @application.update_attributes(:progress => 25)
       @user = User.new(:email => @application.email, :password => "password", :password_confirmation => "password")
       if @user.save
         # would like to refactor here!!
@@ -47,16 +48,20 @@ class ClientApplicationsController < ApplicationController
 
     if @application.application_state == "submitted"
       @application.requesting!
+      @application.update_attributes(:progress => 50)
       message = "This application has been sent in for request"
     elsif @application.application_state == "requested"
       @application.respond!
+      @application.update_attributes(:progress =>  75)
       message = "This application has been sent in for response"
     elsif @application.application_state == "responded"
       if @application.returned?
         @application.submit!
+        @application.update_attributes(:progress => 25)
         message = "This application has been flagged for further review."
       else
         @application.complete!
+        @application.update_attributes(:progress => 100)
         message = "This application is complete"
       end
     elsif @application.application_state == "completed"

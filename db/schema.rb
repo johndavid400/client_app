@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20111228204922) do
     t.string   "zip"
     t.string   "email"
     t.integer  "user_id"
+    t.integer  "progress"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "articles_of_incorporation_file_name"

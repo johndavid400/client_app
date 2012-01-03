@@ -1,4 +1,11 @@
 %h1= @application.business_name
+
+%h3
+  Application Progress:
+  = "#{@application.progress}%"
+= progress_bar(@application.progress, :tiny => true,:color => "blue") 
+%p
+
 %table.bordered-table.zebra-striped
   %thead
     %tr

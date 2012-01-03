@@ -18,6 +18,7 @@ class CreateClientApplications < ActiveRecord::Migration
       t.string :zip
       t.string :email
       t.integer :user_id
+      t.integer :progress
 
       t.timestamps
     end

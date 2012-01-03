@@ -57,6 +57,8 @@ GEM
     columnize (0.3.6)
     commonjs (0.2.0)
       therubyracer (~> 0.9.9)
+    css3-progress-bar-rails (0.1.1)
+      rails
     cucumber (1.1.4)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -228,6 +230,7 @@ DEPENDENCIES
   attr_encrypted
   capybara
   coffee-rails (~> 3.1.1)
+  css3-progress-bar-rails
   cucumber-rails
   database_cleaner
   devise
