@@ -15,14 +15,13 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'attr_encrypted'
 gem 'css3-progress-bar-rails'
+gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -41,4 +40,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'shoulda'
+  gem 'simplecov'
 end
