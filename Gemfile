@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-gem 'mysql2'
-gem 'sqlite3'
+gem 'pg'
+#gem 'mysql2'
+#gem 'sqlite3'
 
 gem 'therubyracer'
 gem 'execjs'
@@ -16,6 +17,7 @@ gem 'devise'
 gem 'attr_encrypted'
 gem 'css3-progress-bar-rails'
 gem 'jquery-rails'
+gem 'aws-s3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
