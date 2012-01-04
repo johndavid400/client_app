@@ -11,7 +11,7 @@ Feature: Authentication
     Then I should see "Signed in successfully"
 
   Scenario: A normal user can log in from the home page
-    Given an application exists with email "test@example.com"
+    Given an application exists with email "test@example.com" and name "Larry"
     And I am on the home page
     And I fill in "user_email" with "test@example.com"
     And I fill in "user_password" with "password"
@@ -19,7 +19,7 @@ Feature: Authentication
     Then I should see "Signed in successfully"
 
   Scenario: A user should be able to log out
-    Given an application exists with email "test@example.com"
+    Given an application exists with email "test@example.com" and name "Jerry"
     And I am on the home page
     And I fill in "user_email" with "test@example.com"
     And I fill in "user_password" with "password"

@@ -8,8 +8,8 @@ Given /^a user exists$/ do
   @user = User.create :email => "user@example.com", :password => "password", :password_confirmation => "password"
 end
 
-Given /^an application exists with email "([^"]*)"$/ do |email|
-  @application = ClientApplication.create(:email => email, :business_name => "Testico")
+Given /^an application exists with email "([^"]*)" and name "([^"]*)"$/ do |email, name|
+  @application = ClientApplication.create(:email => email, :business_name => name)
   @application.submit!
   @user = User.new(:email => @application.email, :password => "password", :password_confirmation => "password")
   @user.save
