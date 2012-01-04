@@ -56,7 +56,7 @@ class ClientApplication < ActiveRecord::Base
   end
 
   def after_submit
-    Client.client_email(self).deliver
+    Client.isotope_email(self).deliver
   end
 
   def after_request
@@ -64,11 +64,11 @@ class ClientApplication < ActiveRecord::Base
   end
 
   def after_respond
-    Client.client_email(self).deliver
+    Client.isotope_email(self).deliver
   end
 
   def after_complete
-    Client.client_email(self).deliver
+    Client.completed_email(self).deliver
   end
 
 end
