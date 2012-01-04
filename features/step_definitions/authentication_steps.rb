@@ -22,6 +22,5 @@ Given /^I am an authenticated admin user$/ do
   fill_in('user_email', :with => 'admin@example.com')
   fill_in('user_password', :with => 'password')
   click_on("Sign in")
-  step %(show me the page)
 end
 
