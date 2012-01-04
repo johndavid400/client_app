@@ -5,7 +5,7 @@ class ClientApplication < ActiveRecord::Base
   validates_format_of :email, :with => /(\S+)@(\w+.\w+)/
 
   belongs_to :user
-  has_one :state
+  belongs_to :state
   has_many :attachments, :dependent => :destroy
   has_many :principal_information_forms, :dependent => :destroy
   has_many :banking_information_forms, :dependent => :destroy
