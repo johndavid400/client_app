@@ -16,6 +16,18 @@
         = f.label 'Business Name*'
         .input= f.text_field :business_name 
       .clearfix
+        = f.label 'Email*'
+        .input= f.text_field :email
+      .clearfix
+        = f.label 'Phone number*'
+        .input= f.text_field :phone_number
+      .clearfix
+        = f.label 'Years in Business*'
+        .input= f.text_field :years_in_business, :class => "text"
+      .clearfix
+        = f.label 'Number of Employees*'
+        .input= f.text_field :number_of_employees, :class => "text"
+      .clearfix
         = f.label 'DBA Name'
         .input= f.text_field :dba_name 
       .clearfix
@@ -25,17 +37,8 @@
         = f.label 'Taxpayer ID number'
         .input= f.text_field :taxpayer_id_number
       .clearfix
-        = f.label 'Years in Business*'
-        .input= f.text_field :years_in_business, :class => "text"
-      .clearfix
-        = f.label 'Number of Employees*'
-        .input= f.text_field :number_of_employees, :class => "text"
-      .clearfix
         = f.label 'Business Website'
         .input= f.text_field :business_website
-      .clearfix
-        = f.label 'Phone number*'
-        .input= f.text_field :phone_number
 
     %fieldset.business_location
       %legend
@@ -44,20 +47,17 @@
         = f.label 'Primary Business Address*'
         .input= f.text_field :business_address
       .clearfix
+        = f.label 'Billing Address*'
+        .input= f.text_field :billing_address
+      .clearfix
         = f.label 'City*'
         .input= f.text_field :city
       .clearfix
         = f.label 'State*'
         .input= f.select(:state_id, options_from_collection_for_select(State.all, :id, :name))
       .clearfix
-        = f.label 'Billing Address'
-        .input= f.text_field :billing_address
-      .clearfix
         = f.label 'Zip code*'
         .input= f.text_field :zip, :maxlength => 5, :class => "text"
-      .clearfix
-        = f.label 'Email*'
-        .input= f.text_field :email
 
     %fieldset.business_type
       %legend
