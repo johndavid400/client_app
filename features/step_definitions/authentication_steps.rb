@@ -9,11 +9,8 @@ Given /^a user exists$/ do
 end
 
 Given /^an application exists with email "([^"]*)" and name "([^"]*)"$/ do |email, name|
-  @application = ClientApplication.create(:email => email, :business_name => name)
-  @application.submit!
-  @user = User.new(:email => @application.email, :password => "password", :password_confirmation => "password")
-  @user.save
-  @application.update_attributes(:user_id => @user.id)
+  @user = FactoryGirl.create :user, email: email
+  @application = FactoryGirl.create :client_application, email: email, business_name: name, user: @user
 end
 
 Given /^I am an authenticated admin user$/ do

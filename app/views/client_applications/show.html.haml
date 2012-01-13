@@ -8,6 +8,8 @@
 = link_to 'Back', root_path
 |
 = link_to 'Edit', edit_client_application_path(@client_application)
+|
+= link_to 'Print', '#', onclick: 'window.print();return false;'
 %p
 
 %table.bordered-table.zebra-striped
