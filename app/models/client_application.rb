@@ -13,19 +13,6 @@ class ClientApplication < ActiveRecord::Base
   accepts_nested_attributes_for :principal_information_forms, :allow_destroy => true
   accepts_nested_attributes_for :banking_information_forms, :allow_destroy => true
 
-  has_attached_file :articles_of_incorporation
-  has_attached_file :proof_of_insurance
-  has_attached_file :business_license
-  has_attached_file :partnership_agreement
-  has_attached_file :limited_partnership
-  has_attached_file :charter
-  has_attached_file :association_resolution
-  has_attached_file :irs_tax_exempt_status_form
-  has_attached_file :bank_statement
-  has_attached_file :tax_return_one
-  has_attached_file :tax_return_two
-  has_attached_file :litigation
-
   state_machine :application_state, :initial => :incomplete do
     after_transition :incomplete => :submitted, :do => :after_submit
     after_transition :submitted => :requested, :do => :after_request

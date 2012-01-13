@@ -1,47 +1,5 @@
-%fieldset
-  %legend
-    File upload form
-  - if application.articles_of_incorporation_file_name == "1"
+= f.fields_for :attachments, :html => { :multipart => true } do |a|
+  %fieldset
     .clearfix
-      = f.label 'Articles of Incorporation'
-      .input= f.file_field :articles_of_incorporation
-  - if application.proof_of_insurance_file_name == "1"
-    .clearfix
-      = f.label 'Proof of Insurance'
-      .input= f.file_field :proof_of_insurance
-  - if application.partnership_agreement_file_name == "1"
-    .clearfix
-      = f.label 'Partnership Agreement'
-      .input= f.file_field :partnership_agreement
-  - if application.limited_partnership_file_name == "1"
-    .clearfix
-      = f.label 'Limited Partnership'
-      .input= f.file_field :limited_partnership
-  - if application.charter_file_name == "1"
-    .clearfix
-      = f.label 'Charter'
-      .input= f.file_field :charter
-  - if application.business_license_file_name == "1"
-    .clearfix
-      = f.label 'Business License'
-      .input= f.file_field :business_license
-  - if application.association_resolution_file_name == "1"
-    .clearfix
-      = f.label 'Association Resolution'
-      .input= f.file_field :association_resolution
-  - if application.irs_tax_exempt_status_form_file_name == "1"
-    .clearfix
-      = f.label 'IRS Tax Exempt Status form'
-      .input= f.file_field :irs_tax_exempt_status_form
-  - if application.bank_statement_file_name == "1"
-    .clearfix
-      = f.label 'Bank Statement'
-      .input= f.file_field :bank_statement
-  - if application.tax_return_one_file_name == "1"
-    .clearfix
-      = f.label 'Tax Return year 1'
-      .input= f.file_field :tax_return_one
-  - if application.tax_return_two_file_name == "1"
-    .clearfix
-      = f.label 'Tax Return year 2'
-      .input= f.file_field :tax_return_two
+      = a.label :description 
+      .input= a.file_field :document

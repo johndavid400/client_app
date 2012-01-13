@@ -159,7 +159,7 @@
         %td= @application.banking_information_forms.first.previous_bank
       %tr
 
-- if @application.litigation?
+- if @application.litigation_information?
   %table.bordered-table.zebra-striped
     %thead
       %tr
@@ -176,59 +176,4 @@
       %tr
         %th Litigation description
         %td=h truncate(@application.litigation_description, :length => 100)
-      - if !@application.litigation_file_name.nil?
-        %tr
-          %th Litigation Attachments
-          %td= link_to @application.litigation_file_name, @application.litigation.url
-
-%table.bordered-table.zebra-striped
-  %thead
-    %tr
-      %th
-        %h3.header Application Attachments:
-  %tbody
-    - if @application.articles_of_incorporation?
-      %tr
-        %th Articles of Incorporation
-        %td= link_to @application.articles_of_incorporation_file_name, @application.articles_of_incorporation.url
-    - if @application.proof_of_insurance?
-      %tr
-        %th Proof of Insurance
-        %td= link_to @application.proof_of_insurance_file_name, @application.proof_of_insurance.url
-    - if @application.business_license?
-      %tr
-        %th Business License
-        %td= link_to @application.business_license_file_name, @application.business_license.url
-    - if @application.partnership_agreement?
-      %tr
-        %th Partnership Agreement
-        %td= link_to @application.partnership_agreement_file_name, @application.partnership_agreement.url
-    - if @application.limited_partnership?
-      %tr
-        %th Limited Partnership
-        %td= link_to @application.limited_partnership_file_name, @application.limited_partnership.url
-    - if @application.charter?
-      %tr
-        %th Charter
-        %td= link_to @application.charter_file_name, @application.charter.url
-    - if @application.association_resolution?
-      %tr
-        %th Association Resolution
-        %td= link_to @application.association_resolution_file_name, @application.association_resolution.url
-    - if @application.irs_tax_exempt_status_form?
-      %tr
-        %th IRS tax exempt status form
-        %td= link_to @application.irs_tax_exempt_status_form_file_name, @application.irs_tax_exempt_status_form.url
-    - if @application.bank_statement?
-      %tr
-        %th Bank Statement
-        %td= link_to @application.bank_statement_file_name, @application.bank_statement.url
-    - if @application.tax_return_one?
-      %tr
-        %th Tax return 2009
-        %td= link_to @application.tax_return_one_file_name, @application.tax_return_one.url
-    - if @application.tax_return_two?
-      %tr
-        %th Tax return 2010
-        %td= link_to @application.tax_return_two_file_name, @application.tax_return_two.url
 

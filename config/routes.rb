@@ -8,4 +8,6 @@ ClientApp::Application.routes.draw do
   resources :users
   root :to => 'home#index'
 
+  match "add_attachments" => "client_applications#add_attachments"
+
 end

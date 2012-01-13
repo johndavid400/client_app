@@ -3,53 +3,51 @@
   %h2 Application Submitted
 
 .form_wrapper
-  = form_for @application, :html => { :multipart => true } do |f|
+  = form_for(:client_application, :url => { :controller => 'client_applications', :action => 'add_attachments', :method => :post}, :html => { :multipart => true }) do |f|
     %fieldset
       %legend
         Request Documents
       %span
-        = f.check_box :articles_of_incorporation_file_name, :class => "documents"
+        = hidden_field_tag :application_id, @application.id
+      %span
+        = f.check_box :articles_of_incorporation, :class => "documents"
         = 'Articles of Incorporation'
       %p
       %span
-        = f.check_box :proof_of_insurance_file_name, :class => "documents"
+        = f.check_box :proof_of_insurance, :class => "documents"
         = 'Proof of Insurance'
       %p
       %span
-        = f.check_box :business_license_file_name, :class => "documents"
+        = f.check_box :business_license, :class => "documents"
         = 'Business License'
       %p
       %span
-        = f.check_box :partnership_agreement_file_name, :class => "documents"
+        = f.check_box :partnership_agreement, :class => "documents"
         = 'Partnership Agreement'
       %p
       %span
-        = f.check_box :limited_partnership_file_name, :class => "documents"
+        = f.check_box :limited_partnership, :class => "documents"
         = 'Limited Partnership LP1'
       %p
       %span
-        = f.check_box :charter_file_name, :class => "documents"
+        = f.check_box :charter, :class => "documents"
         = 'Charter and By-Laws'
       %p
       %span
-        = f.check_box :association_resolution_file_name, :class => "documents"
+        = f.check_box :association_resolution, :class => "documents"
         = 'Association Resolution'
       %p
       %span
-        = f.check_box :irs_tax_exempt_status_form_file_name, :class => "documents"
+        = f.check_box :irs_tax_exemption_form, :class => "documents"
         = 'IRS Tax Exemption Status Form'
       %p
       %span
-        = f.check_box :bank_statement_file_name, :class => "documents"
+        = f.check_box :bank_statements, :class => "documents"
         = 'Bank Statement'
       %p
       %span
-        = f.check_box :tax_return_one_file_name, :class => "documents"
+        = f.check_box :tax_returns, :class => "documents"
         = '2009 Tax Return'
-      %p
-      %span
-        = f.check_box :tax_return_two_file_name, :class => "documents"
-        = '2010 Tax Return'
       %p
 
     %fieldset
@@ -64,7 +62,7 @@
         = 'Banking Information form'
       %p
       %span
-        = f.check_box :litigation_file_name, :class => "documents"
+        = f.check_box :litigation_information, :class => "documents"
         = 'Litigation response'
       %p
 

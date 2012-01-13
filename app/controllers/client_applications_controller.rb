@@ -1,19 +1,11 @@
 class ClientApplicationsController < ApplicationController
 
-  def index
-    @applications = ClientApplication.all
-  end
-
   def show
     @application = ClientApplication.find(params[:id])
   end
 
   def new
     @application = ClientApplication.new
-    # let's make 3 attachments for now
-    6.times do
-      @application.attachments.build
-    end
   end
 
   def create
@@ -39,13 +31,23 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.find(params[:id])
     @principal_information_form = @application.principal_information_forms.build
     @banking_information_form = @application.banking_information_forms.build
+    @selected = @application.attributes.select{|k, v| v == true}
+    unless @selected.empty?
+      @selected.each do |param|
+        # need to do something here... maybe find_or_create_by
+       @application.attachments.find_or_create_by_description(param.first)
+      end
+    end
     render @application.application_state
   end
 
   def update
-    @application = ClientApplication.find(params[:id])
-    @application.update_attributes(params[:client_application])
+    @appication = ClientApplication.find(params[:id])
+    update_state
+  end
 
+  def update_state
+    @application.update_attributes(params[:client_application])
     if @application.application_state == "submitted"
       @application.requesting!
       @application.update_attributes(:progress => 50)
@@ -69,6 +71,11 @@ class ClientApplicationsController < ApplicationController
     end
     redirect_to "/"
     flash[:notice] = message
+  end
+
+  def add_attachments
+     @application = ClientApplication.find(params[:application_id])
+     update_state
   end
 
   def destroy

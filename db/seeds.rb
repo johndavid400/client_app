@@ -44,7 +44,7 @@ c.requesting!
 c.respond!
 puts "App 3 created"
 
-d = ClientApplication.create(:business_name => "Terry's Painting", :taxpayer_id_number => "3413490409", :business_address => "123 Thomas street", :business_website => "business.com", :billing_address => "39 2nd street", :parent_company => "Painters Inc", :dba_name => "Terry's painting", :city => "Birmingham", :state_id => 1, :contact_method => "email", :phone_number => "205-433-8884", :years_in_business => "3", :number_of_employees => "3", :zip => "35206", :email => "terry@terry.com", :progress => 100, :charter => File.open(File.join(Rails.root, "db", "seeds", "charter.pdf")), :business_license => File.open(File.join(Rails.root, "db", "seeds", "business_license.pdf")), :bank_statement => File.open(File.join(Rails.root, "db", "seeds", "bank_statement.pdf")))
+d = ClientApplication.create(:business_name => "Terry's Painting", :taxpayer_id_number => "3413490409", :business_address => "123 Thomas street", :business_website => "business.com", :billing_address => "39 2nd street", :parent_company => "Painters Inc", :dba_name => "Terry's painting", :city => "Birmingham", :state_id => 1, :contact_method => "email", :phone_number => "205-433-8884", :years_in_business => "3", :number_of_employees => "3", :zip => "35206", :email => "terry@terry.com", :progress => 100)
 dd = User.create :email => d.email, :password => "password", :password_confirmation => "password"
 d.user_id = dd.id
 d.save
@@ -56,8 +56,11 @@ d.respond!
 d.complete!
 d.principal_information_forms.create(name: "Terry", alternate_name: "T-dog", ssn: "202-23-1132", dob: "1/23/1956", dl_number: "2039340934", street_address: "2309 street rd", city: "Birmingham", state: "Alabama", zip: "23234", county: "Jefferson", prev_street_address: "324090 street", prev_city: "Atlanta", prev_state: "GA", prev_zip: "343434", prev_county: "Lanette", position: "Owner", company: "Terry's painting", years_with_company: "12", prev_employer: "none", date: "2/23/2012")
 d.banking_information_forms.create(bank_name: "Compass Bank", bank_address: "233 greensprings", contact_person: "Tina", phone_number: "324-3434", previous_bank: "Regions")
-d.attachments.create(:document => File.open(File.join(Rails.root, "db", "seeds", "foo.txt")))
-d.attachments.create(:document => File.open(File.join(Rails.root, "db", "seeds", "bar.pde")))
+d.attachments.create(:description => "Foo doc", :document => File.open(File.join(Rails.root, "db", "seeds", "foo.txt")))
+d.attachments.create(:description => "Bar pdf", :document => File.open(File.join(Rails.root, "db", "seeds", "bar.pde")))
+d.attachments.create(:description => "Bank statement", :document => File.open(File.join(Rails.root, "db", "seeds", "bank_statement.pdf")))
+d.attachments.create(:description => "Charter", :document => File.open(File.join(Rails.root, "db", "seeds", "charter.pdf")))
+d.attachments.create(:description => "Business License", :document => File.open(File.join(Rails.root, "db", "seeds", "business_license.pdf")))
 puts "App 4 created"
 
 puts "Success!"

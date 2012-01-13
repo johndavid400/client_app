@@ -1,17 +1,15 @@
 class AddAttachmentColumnsToClientApplications < ActiveRecord::Migration
   def self.up
-    add_column :client_applications, :articles_of_incorporation_file_name, :string
-    add_column :client_applications, :proof_of_insurance_file_name, :string
-    add_column :client_applications, :business_license_file_name, :string
-    add_column :client_applications, :partnership_agreement_file_name, :string
-    add_column :client_applications, :limited_partnership_file_name, :string
-    add_column :client_applications, :charter_file_name, :string
-    add_column :client_applications, :association_resolution_file_name, :string
-    add_column :client_applications, :irs_tax_exempt_status_form_file_name, :string
-    add_column :client_applications, :bank_statement_file_name, :string
-    add_column :client_applications, :tax_return_one_file_name, :string
-    add_column :client_applications, :tax_return_two_file_name, :string
-    add_column :client_applications, :litigation_file_name, :string
+    add_column :client_applications, :articles_of_incorporation, :boolean
+    add_column :client_applications, :proof_of_insurance, :boolean
+    add_column :client_applications, :business_license, :boolean
+    add_column :client_applications, :partnership_agreement, :boolean
+    add_column :client_applications, :limited_partnership, :boolean
+    add_column :client_applications, :charter, :boolean
+    add_column :client_applications, :association_resolution, :boolean
+    add_column :client_applications, :irs_tax_exemption_form, :boolean
+    add_column :client_applications, :bank_statements, :boolean
+    add_column :client_applications, :tax_returns, :boolean
     add_column :client_applications, :litigation_information, :boolean
     add_column :client_applications, :banking_information, :boolean
     add_column :client_applications, :principal_information, :boolean
@@ -21,17 +19,16 @@ class AddAttachmentColumnsToClientApplications < ActiveRecord::Migration
     remove_column :client_applications, :principal_information
     remove_column :client_applications, :banking_information
     remove_column :client_applications, :litigation_information
-    remove_column :client_applications, :litigation_file_name
-    remove_column :client_applications, :tax_return_two_file_name
-    remove_column :client_applications, :tax_return_one_file_name
-    remove_column :client_applications, :bank_statement_file_name
-    remove_column :client_applications, :irs_tax_exempt_status_form_file_name
-    remove_column :client_applications, :association_resolution_file_name
-    remove_column :client_applications, :charter_file_name
-    remove_column :client_applications, :limited_partnership_file_name
-    remove_column :client_applications, :partnership_agreement_file_name
-    remove_column :client_applications, :business_license_file_name
-    remove_column :client_applications, :proof_of_insurance_file_name
-    remove_column :client_applications, :articles_of_incorporation_file_name
+    remove_column :client_applications, :litigation
+    remove_column :client_applications, :tax_returns
+    remove_column :client_applications, :bank_statements
+    remove_column :client_applications, :irs_tax_exemption_form
+    remove_column :client_applications, :association_resolution
+    remove_column :client_applications, :charter
+    remove_column :client_applications, :limited_partnership
+    remove_column :client_applications, :partnership_agreement
+    remove_column :client_applications, :business_license
+    remove_column :client_applications, :proof_of_insurance
+    remove_column :client_applications, :articles_of_incorporation
   end
 end

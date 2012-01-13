@@ -33,7 +33,7 @@ end
 
 group :test do
   # Pretty printed test output
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'ruby-debug19'
   gem 'turn', '0.8.2', :require => false
   gem 'database_cleaner'
   gem 'rails3-generators' #mainly for factory_girl & simple_form at this point
