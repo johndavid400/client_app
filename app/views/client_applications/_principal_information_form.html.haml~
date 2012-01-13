@@ -1,4 +1,4 @@
-- if @client_application.principal_information?
+- if @application.principal_information?
   %fieldset
     %legend
       Principal Information Form

@@ -1,5 +1,5 @@
 class ClientApplication < ActiveRecord::Base
-  attr_accessible :attachments_attributes
+#  attr_accessible :attachments_attributes
 
   validates_uniqueness_of :email, :business_name
   validates_presence_of :business_name, :email, :phone_number, :years_in_business, :number_of_employees, :business_address, :billing_address, :city, :zip

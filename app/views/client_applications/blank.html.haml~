@@ -1,6 +1,6 @@
 %h1 Blank application
 
-= form_for @client_application do |f|
+= form_for @application do |f|
   = f.label "Blank"
   = f.text_field :business_name
 

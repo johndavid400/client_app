@@ -3,58 +3,58 @@
   %h2 Application Submitted
 
 .form_wrapper
-  = nested_form_for(@client_application, :url => { :controller => 'client_applications', :action => 'add_attachments', :method => :post}, :html => { :multipart => true }) do |f|
+  = nested_form_for(@application, :url => { :controller => 'client_applications', :action => 'add_attachments', :method => :post}, :html => { :multipart => true }) do |f|
     %fieldset
       %legend
         Request Documents
       %span
-        = hidden_field_tag :application_id, @client_application.id
-      - unless @client_application.articles_of_incorporation?
+        = hidden_field_tag :application_id, @application.id
+      - unless @application.articles_of_incorporation?
         %span
           = f.check_box :articles_of_incorporation, :class => "documents"
           = 'Articles of Incorporation'
         %p
-      - unless @client_application.proof_of_insurance?
+      - unless @application.proof_of_insurance?
         %span
           = f.check_box :proof_of_insurance, :class => "documents"
           = 'Proof of Insurance'
         %p
-      - unless @client_application.business_license?
+      - unless @application.business_license?
         %span
           = f.check_box :business_license, :class => "documents"
           = 'Business License'
         %p
-      - unless @client_application.partnership_agreement?
+      - unless @application.partnership_agreement?
         %span
           = f.check_box :partnership_agreement, :class => "documents"
           = 'Partnership Agreement'
         %p
-      - unless @client_application.limited_partnership?
+      - unless @application.limited_partnership?
         %span
           = f.check_box :limited_partnership, :class => "documents"
           = 'Limited Partnership LP1'
         %p
-      - unless @client_application.charter?
+      - unless @application.charter?
         %span
           = f.check_box :charter, :class => "documents"
           = 'Charter and By-Laws'
         %p
-      - unless @client_application.association_resolution?
+      - unless @application.association_resolution?
         %span
           = f.check_box :association_resolution, :class => "documents"
           = 'Association Resolution'
         %p
-      - unless @client_application.irs_tax_exemption_form?
+      - unless @application.irs_tax_exemption_form?
         %span
           = f.check_box :irs_tax_exemption_form, :class => "documents"
           = 'IRS Tax Exemption Status Form'
         %p
-      - unless @client_application.bank_statements?
+      - unless @application.bank_statements?
         %span
           = f.check_box :bank_statements, :class => "documents"
           = 'Bank Statement'
         %p
-      - unless @client_application.tax_returns?
+      - unless @application.tax_returns?
         %span
           = f.check_box :tax_returns, :class => "documents"
           = '2009 Tax Return'
@@ -63,17 +63,17 @@
     %fieldset
       %legend
         Request Forms
-      - unless @client_application.principal_information?
+      - unless @application.principal_information?
         %span
           = f.check_box :principal_information, :class => "documents"
           = 'Principal Information form'
         %p
-      - unless @client_application.banking_information?
+      - unless @application.banking_information?
         %span
           = f.check_box :banking_information, :class => "documents"
           = 'Banking Information form'
         %p
-      - unless @client_application.litigation_information?
+      - unless @application.litigation_information?
         %span
           = f.check_box :litigation_information, :class => "documents"
           = 'Litigation response'

@@ -1,12 +1,12 @@
 .form_wrapper
-  = form_for(@client_application) do |f|
-    - if @client_application.errors.any?
+  = form_for(@application) do |f|
+    - if @application.errors.any?
       #error_explanation
         %h2
-          = pluralize(@client_application.errors.count, "error")
+          = pluralize(@application.errors.count, "error")
           prohibited this application from being saved:
         %ul
-          - @client_application.errors.full_messages.each do |msg|
+          - @application.errors.full_messages.each do |msg|
             %li= msg
 
     %fieldset.business_info

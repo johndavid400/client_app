@@ -13,7 +13,7 @@
             %th edit
             %th delete
         %tbody
-          - @client_applications.each do |app|
+          - @applications.each do |app|
             %tr
               %td= link_to app.business_name, client_application_path(app)
               %td= app.email
