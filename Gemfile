@@ -45,3 +45,5 @@ group :test do
   gem 'shoulda'
   gem 'simplecov'
 end
+
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'

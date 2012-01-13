@@ -1,5 +1,5 @@
-= f.fields_for :attachments, :html => { :multipart => true } do |a|
-  %fieldset
+%fieldset
+  = f.fields_for :attachments, :html => { :multipart => true } do |a|
     - if a.object[:document_file_name].nil?
       .clearfix
         = a.label a.object[:description]

@@ -3,7 +3,7 @@
   %h2 Application Submitted
 
 .form_wrapper
-  = form_for(:client_application, :url => { :controller => 'client_applications', :action => 'add_attachments', :method => :post}, :html => { :multipart => true }) do |f|
+  = nested_form_for(@application, :url => { :controller => 'client_applications', :action => 'add_attachments', :method => :post}, :html => { :multipart => true }) do |f|
     %fieldset
       %legend
         Request Documents
@@ -78,6 +78,16 @@
           = f.check_box :litigation_information, :class => "documents"
           = 'Litigation response'
         %p
+
+    %fieldset
+      %legend
+        Additional Attachments
+      = f.fields_for :attachments do |attachment|
+        %span
+          = attachment.text_field :description
+          = attachment.link_to_remove "remove this task"
+        %p
+      = f.link_to_add "Add an attachment", :attachments
 
     = f.submit "Submit", :class => "btn success"
 
