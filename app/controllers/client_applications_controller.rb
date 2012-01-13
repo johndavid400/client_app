@@ -34,7 +34,6 @@ class ClientApplicationsController < ApplicationController
     @selected = @application.attributes.select{|k, v| v == true}
     unless @selected.empty?
       @selected.each do |param|
-        # need to do something here... maybe find_or_create_by
        @application.attachments.find_or_create_by_description(param.first)
       end
     end
@@ -42,7 +41,7 @@ class ClientApplicationsController < ApplicationController
   end
 
   def update
-    @appication = ClientApplication.find(params[:id])
+    @application = ClientApplication.find(params[:id])
     update_state
   end
 
@@ -82,6 +81,7 @@ class ClientApplicationsController < ApplicationController
     @application = ClientApplication.find(params[:id])
     @application.destroy
     redirect_to :back
+    flash[:notice] = "Client Application successfully deleted"
   end
 
 end
