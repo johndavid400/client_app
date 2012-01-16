@@ -82,4 +82,23 @@ Feature: Application
     And I click "Submit"
     Then the application state should be "submitted"
 
+  Scenario: A non-admin should not have access to other client application show pages
+    Given an application exists with email "restricted@example.com" and name "restricted"
+    Given I am an authenticated user
+    Given I am on the home page
+    When I visit the show page for application with email "restricted@example.com"
+    Then I should be redirected to the home page
+
+  Scenario: A non-admin should not have access to other client application edit pages
+    Given an application exists with email "restricted@example.com" and name "restricted"
+    Given I am an authenticated user
+    Given I am on the home page
+    When I visit the edit page for application with email "restricted@example.com"
+    Then I should be redirected to the home page
+
+  Scenario: A visitor should have restricted access
+    Given an application exists with email "restricted@example.com" and name "restricted"
+    Given I am on the home page
+    When I visit the show page for application with email "restricted@example.com"
+    Then I should be redirected to the home page
 

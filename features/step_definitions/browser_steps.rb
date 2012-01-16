@@ -34,3 +34,12 @@ Given /^I am on the client applications index page$/ do
   visit client_applications_path
 end
 
+Then /^I should be redirected to the home page$/ do
+  current_path.should == root_path
+end
+
+When /^I visit the edit page for application with email "([^"]*)"$/ do |email|
+  app = ClientApplication.find_by_email(email)
+  visit edit_client_application_path(app)
+end
+

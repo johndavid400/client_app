@@ -16,3 +16,11 @@ Given /^I am an authenticated admin user$/ do
   click_on("Sign in")
 end
 
+Given /^I am an authenticated user$/ do
+  step %(an application exists with email "user@example.com" and name "Jerry")
+  visit root_path
+  fill_in('user_email', :with => 'user@example.com')
+  fill_in('user_password', :with => 'password')
+  click_on("Sign in")
+end
+
