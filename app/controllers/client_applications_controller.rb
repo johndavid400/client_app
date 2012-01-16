@@ -9,13 +9,10 @@ class ClientApplicationsController < ApplicationController
 
   def show
     @client_application = ClientApplication.find(params[:id])
-    verify_user
   end
 
   def verify_user
-    unless @client_application.user == current_user || current_user.admin?
-      redirect_to "/"
-    end
+    @client_application.user == current_user || current_user.admin?
   end
 
   def new
@@ -43,15 +40,19 @@ class ClientApplicationsController < ApplicationController
 
   def edit
     @client_application = ClientApplication.find(params[:id])
-    @principal_information_form = @client_application.principal_information_forms.build
-    @banking_information_form = @client_application.banking_information_forms.build
-    @selected = @client_application.attributes.select{|k, v| v == true}
-    unless @selected.empty?
-      @selected.each do |param|
-       @client_application.attachments.find_or_create_by_description(param.first)
+    if !verify_user
+      redirect_to root_path
+    else
+      @principal_information_form = @client_application.principal_information_forms.build
+      @banking_information_form = @client_application.banking_information_forms.build
+      @selected = @client_application.attributes.select{|k, v| v == true}
+      unless @selected.empty?
+        @selected.each do |param|
+         @client_application.attachments.find_or_create_by_description(param.first)
+        end
       end
+      render @client_application.application_state
     end
-    render @client_application.application_state
   end
 
   def update

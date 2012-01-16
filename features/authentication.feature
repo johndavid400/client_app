@@ -8,7 +8,7 @@ Feature: Authentication
     And I fill in "user_email" with "admin@example.com"
     And I fill in "user_password" with "password"
     When I click "Sign in"
-    Then I should see "Signed in successfully"
+    Then I should see "Welcome to the Admin Client Application listing"
 
   Scenario: A normal user can log in from the home page
     Given an application exists with email "test@example.com" and name "Larry"

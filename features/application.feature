@@ -6,7 +6,7 @@ Feature: Application
     Given an application exists with email "loser@example.com" and name "Tom"
     Given an application exists with email "fuser@example.com" and name "Ron"
     Given I am an authenticated admin user
-    When I am on the home page
+    When I am on the client applications index page
     Then I should see "fuser@example.com"
     And I should see "loser@example.com"
 
@@ -38,7 +38,7 @@ Feature: Application
   Scenario: An admin should be able to edit an application
     Given an application exists with email "user@example.com" and name "Don"
     Given I am an authenticated admin user
-    And I am on the home page
+    And I am on the client applications index page
     When I follow "Edit"
     Then I should see "request information"
 
@@ -55,7 +55,7 @@ Feature: Application
     Given an application exists with email "user@example.com" and name "Don"
     Given I am an authenticated admin user
     And I am on the client applications index page
-    When I follow "Destroy"
+    When I follow "Delete"
     Then I should see "Client Application successfully deleted"
   
   Scenario: An admin should be able to finish an application
@@ -68,7 +68,7 @@ Feature: Application
     Then I follow "Edit"
     Then I choose "client_application_returned_0"
     And I click "Submit"
-    Then I should see "application is complete"
+    Then I should see "completed"
 
   Scenario: An admin should be able to return an application
     Given I am on an application's edit page
