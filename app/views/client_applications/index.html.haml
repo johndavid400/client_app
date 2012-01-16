@@ -1,0 +1,20 @@
+- if current_user
+  - if current_user.admin?
+    .wrapper
+      %h1 Listing applications
+      .app_index
+        %table
+          %tr
+            %th Business Name
+            %th Email
+            %th
+            %th
+            %th
+          - @applications.each do |application|
+            %tr
+              %td= application.business_name
+              %td= application.email
+              %td= link_to 'Show', application
+              %td= link_to 'Edit', edit_client_application_path(application)
+              %td= link_to 'Destroy', application, method: :delete
+      = link_to 'New Application', new_client_application_path

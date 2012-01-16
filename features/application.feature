@@ -23,3 +23,63 @@ Feature: Application
     Given I am an authenticated admin user
     Then I should see "user@example.com"
     
+  Scenario: Isotope11 can view Client application show page
+    Given an application exists with email "user@example.com" and name "Don"
+    Given I am an authenticated admin user
+    When I visit the show page for application with email "user@example.com"
+    Then I should see "Don" 
+
+  Scenario: An error message should occur if an application does not pass validations
+    Given I am on the home page
+    And I follow "New Application"
+    And I click "Create Client application"
+    Then I should see "Email can't be blank"
+
+  Scenario: An admin should be able to edit an application
+    Given an application exists with email "user@example.com" and name "Don"
+    Given I am an authenticated admin user
+    And I am on the home page
+    When I follow "Edit"
+    Then I should see "request information"
+
+  Scenario: An admin should be able to request attachments from the client
+    Given I am on an application's edit page
+    And I check "client_application_articles_of_incorporation"
+    And I check "client_application_business_license"
+    And I click "Submit"
+    When I follow "Edit"
+    Then I should see "Articles of incorporation"
+    And I should see "Business license"
+
+  Scenario: An admin should be able to delete an application
+    Given an application exists with email "user@example.com" and name "Don"
+    Given I am an authenticated admin user
+    And I am on the client applications index page
+    When I follow "Destroy"
+    Then I should see "Client Application successfully deleted"
+  
+  Scenario: An admin should be able to finish an application
+    Given I am on an application's edit page
+    And I check "client_application_business_license"
+    And I click "Submit"
+    When I follow "Edit"
+    And I should see "Business license"
+    When I click "Submit"
+    Then I follow "Edit"
+    Then I choose "client_application_returned_0"
+    And I click "Submit"
+    Then I should see "application is complete"
+
+  Scenario: An admin should be able to return an application
+    Given I am on an application's edit page
+    And I check "client_application_business_license"
+    And I click "Submit"
+    When I follow "Edit"
+    And I should see "Business license"
+    When I click "Submit"
+    Then I follow "Edit"
+    Then I choose "client_application_returned_1"
+    And I click "Submit"
+    Then the application state should be "submitted"
+
+

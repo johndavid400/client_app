@@ -8,11 +8,6 @@ Given /^a user exists$/ do
   @user = User.create :email => "user@example.com", :password => "password", :password_confirmation => "password"
 end
 
-Given /^an application exists with email "([^"]*)" and name "([^"]*)"$/ do |email, name|
-  @user = FactoryGirl.create :user, email: email
-  @application = FactoryGirl.create :client_application, email: email, business_name: name, user: @user
-end
-
 Given /^I am an authenticated admin user$/ do
   step %(an admin user exists)
   visit root_path

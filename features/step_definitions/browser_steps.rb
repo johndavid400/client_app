@@ -25,4 +25,12 @@ Then /^I should see "([^"]*)"$/ do |message|
     page.should have_content(message)
 end
 
+When /^I visit the show page for application with email "([^"]*)"$/ do |email|
+  app = ClientApplication.find_by_email(email)
+  visit client_application_path(app)
+end
+
+Given /^I am on the client applications index page$/ do
+  visit client_applications_path
+end
 

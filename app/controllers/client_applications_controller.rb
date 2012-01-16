@@ -1,5 +1,9 @@
 class ClientApplicationsController < ApplicationController
 
+  def index
+    @applications = ClientApplication.all
+  end
+
   def show
     @client_application = ClientApplication.find(params[:id])
   end
@@ -23,7 +27,7 @@ class ClientApplicationsController < ApplicationController
     else
       render 'new'
       error_message = @client_application.errors.full_messages.first
-      flash[:error] = "Application Failed to submit! " + " " + error_message
+      flash[:error] = error_message
     end
   end
 
@@ -65,8 +69,6 @@ class ClientApplicationsController < ApplicationController
         @client_application.update_attributes(:progress => 100)
         message = "This application is complete"
       end
-    elsif @client_application.application_state == "completed"
-      message = "This application is really complete"
     end
     redirect_to "/"
     flash[:notice] = message
