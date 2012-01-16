@@ -1,20 +1,27 @@
-- if current_user
-  - if current_user.admin?
-    .wrapper
-      %h1 Listing applications
-      .app_index
-        %table
-          %tr
-            %th Business Name
-            %th Email
-            %th
-            %th
-            %th
-          - @applications.each do |application|
-            %tr
-              %td= application.business_name
-              %td= application.email
-              %td= link_to 'Show', application
-              %td= link_to 'Edit', edit_client_application_path(application)
-              %td= link_to 'Destroy', application, method: :delete
-      = link_to 'New Application', new_client_application_path
+%h1.title Isotope11 Client Applications
+.content
+  %table.bordered-table.zebra-striped#table-sort
+    %thead
+      %tr
+        %th Client company
+        %th Client email
+        %th App state
+        %th Progress
+        %th Created on
+        %th edit
+        %th delete
+    %tbody
+      - @client_applications.each do |app|
+        %tr
+          %td= link_to app.business_name, client_application_path(app)
+          %td= app.email
+          %td= app.application_state 
+          %td= progress_bar(app.progress, :tiny => true, :color => "blue") 
+          %td= app.created_at
+          %td= link_to 'Edit', edit_client_application_path(app)
+          %td= link_to 'Delete', app, :method => :delete, :confirm => "Delete this application?"
+
+:javascript
+  $(document).ready(function(){
+    $("table#table-sort").tablesorter({ sortList: [[1,0]] });
+  });

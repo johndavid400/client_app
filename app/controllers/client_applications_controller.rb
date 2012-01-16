@@ -1,11 +1,21 @@
 class ClientApplicationsController < ApplicationController
 
+  before_filter :admin_required, :only => [:index, :show, :destroy]
+  before_filter :login_required, :only => [:edit]
+
   def index
-    @applications = ClientApplication.all
+    @client_applications = ClientApplication.all
   end
 
   def show
     @client_application = ClientApplication.find(params[:id])
+    verify_user
+  end
+
+  def verify_user
+    unless @client_application.user == current_user || current_user.admin?
+      redirect_to "/"
+    end
   end
 
   def new

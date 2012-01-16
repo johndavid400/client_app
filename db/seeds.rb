@@ -1,5 +1,5 @@
 
-@user = User.create :email => "jd@isotope11.com", :password => "password", :password_confirmation => "password"
+@user = User.create :email => "admin@example.com", :password => "password", :password_confirmation => "password"
 @user.admin = true
 
 if @user.save
