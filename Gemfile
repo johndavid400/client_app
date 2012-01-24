@@ -18,6 +18,7 @@ gem 'attr_encrypted'
 gem 'css3-progress-bar-rails'
 gem 'jquery-rails'
 gem 'aws-s3'
+gem 'faraday'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -33,7 +34,7 @@ end
 
 group :test do
   # Pretty printed test output
-  #gem 'ruby-debug19'
+  gem 'ruby-debug19'
   gem 'mysql2'
 #  gem 'sqlite3'
   gem 'turn', '0.8.2', :require => false

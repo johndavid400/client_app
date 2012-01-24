@@ -1,5 +1,4 @@
 class ClientApplication < ActiveRecord::Base
-#  attr_accessible :attachments_attributes
 
   validates_uniqueness_of :email, :business_name
   validates_presence_of :business_name, :email, :phone_number, :years_in_business, :number_of_employees, :business_address, :billing_address, :city, :zip
@@ -57,6 +56,14 @@ class ClientApplication < ActiveRecord::Base
 
   def after_complete
     Client.completed_email(self).deliver
+    # send json request to Xrono to create a Client
+    create_in_xrono
+  end
+
+  def create_in_xrono
+    # do stuff
+    conn = Faraday.new(:url => "http://192.168.1.83:3000")
+    response = conn.post("/api/v1/clients.json", {"client" => {"name" => self.business_name, "status" => "Inactive"}})
   end
 
 end

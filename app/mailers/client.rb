@@ -5,6 +5,7 @@ class Client < ActionMailer::Base
     @client_application = application
     @url = client_application_path(@client_application)
     mail(:to => @client_application.email, :subject => "Correspondence with Isotope11")
+    mail(:to => "jd@isotope11.com", :subject => "A client has submitted information to Isotope11.")
   end
 
   def isotope_email(application)
