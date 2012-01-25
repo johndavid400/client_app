@@ -63,7 +63,7 @@ class ClientApplication < ActiveRecord::Base
   def create_in_xrono
     # do stuff
     conn = Faraday.new(:url => "http://192.168.1.83:3000")
-    response = conn.post("/api/v1/clients.json", {"client" => {"name" => self.business_name, "status" => "Inactive"}})
+    response = conn.post("/api/v1/clients.json", {"client" => {"name" => self.business_name, "status" => "Inactive"}, "contact" => {"first_name" => "Foo", "last_name" => "Bar", "email_address" => self.email, "phone_number" => self.phone_number, "street" => self.business_address, "city" => self.city, "state" => self.state.name, "zip" => self.zip}})
   end
 
 end
