@@ -39,9 +39,14 @@ class ClientApplicationsController < ApplicationController
     if !verify_user
       redirect_to root_path
     else
-      @principal_information_form = @client_application.principal_information_forms.build
-      @banking_information_form = @client_application.banking_information_forms.build
-      @selected = @client_application.attributes.select{|k, v| v == true}
+      unless @client_application.principal_information_forms.present?
+        @principal_information_form = @client_application.principal_information_forms.build
+      end
+      unless @client_application.banking_information_forms.present?
+        @banking_information_form = @client_application.banking_information_forms.build
+      end
+#      @selected = @client_application.attributes.select{|k, v| v == true}
+      @selected = @client_application.attributes.select{|k, v| v == true && k != "returned" && k != "contact_by_email"}
       unless @selected.empty?
         @selected.each do |param|
          @client_application.attachments.find_or_create_by_description(param.first)
@@ -51,6 +56,12 @@ class ClientApplicationsController < ApplicationController
     end
   end
 
+  def update
+    @client_application = ClientApplication.find(params[:id])
+    update_state
+  end
+
+
   def destroy
     @client_application = ClientApplication.find(params[:id])
     @client_application.destroy
@@ -58,12 +69,8 @@ class ClientApplicationsController < ApplicationController
     flash[:notice] = "Client Application successfully deleted"
   end
 
-  def update
-    @client_application = ClientApplication.find(params[:id])
-    update_state
-  end
-
   def update_state
+    # fix me - needs to not update attributes if they already exists... it is currently overwriting old values to add new ones.
     @client_application.update_attributes(params[:client_application])
     if @client_application.application_state == "submitted"
       @client_application.requesting!
