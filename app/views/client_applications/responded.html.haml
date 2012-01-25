@@ -40,10 +40,10 @@
       %tr
         %th Business Website
         %td= @client_application.business_website
-    - if @client_application.contact_method != ""
+    - if @client_application.contact_by_email?
       %tr
         %th Contact Method
-        %td= @client_application.contact_method
+        %td= @client_application.contact_by_email
     - if @client_application.business_address != ""
       %tr
         %th Business Address

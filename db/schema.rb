@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120125172830) do
     t.string   "city"
     t.string   "application_state"
     t.string   "state_id"
-    t.string   "contact_method"
+    t.boolean  "contact_by_email"
     t.string   "phone_number"
     t.integer  "years_in_business"
     t.integer  "number_of_employees"

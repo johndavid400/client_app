@@ -11,10 +11,6 @@ class ClientApplicationsController < ApplicationController
     @client_application = ClientApplication.find(params[:id])
   end
 
-  def verify_user
-    @client_application.user == current_user || current_user.admin?
-  end
-
   def new
     @client_application = ClientApplication.new
   end
@@ -55,6 +51,13 @@ class ClientApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    @client_application = ClientApplication.find(params[:id])
+    @client_application.destroy
+    redirect_to :back
+    flash[:notice] = "Client Application successfully deleted"
+  end
+
   def update
     @client_application = ClientApplication.find(params[:id])
     update_state
@@ -90,11 +93,9 @@ class ClientApplicationsController < ApplicationController
      update_state
   end
 
-  def destroy
-    @client_application = ClientApplication.find(params[:id])
-    @client_application.destroy
-    redirect_to :back
-    flash[:notice] = "Client Application successfully deleted"
+  def verify_user
+    @client_application.user == current_user || current_user.admin?
   end
+
 
 end

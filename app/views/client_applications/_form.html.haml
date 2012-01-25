@@ -72,19 +72,11 @@
         .input
           %ul.inputs-list
             %label
-              = f.radio_button :contact_method, "phone", :class => "contact_no_field"
-              %span Phone
-            %label
-              = f.radio_button :contact_method, "email", :class => "contact_no_field"
+              = f.radio_button :contact_by_email, 1
               %span Email
             %label
-              = f.radio_button :contact_method, "text", :class => "contact_no_field"
-              %span Text Message
-            %label
-              = f.radio_button :contact_method, "other", :class => "other_contact_method"
-              %span Other
-          = f.text_field :contact_method, :class => "other_contact_field"
-
+              = f.radio_button :contact_by_email, 0
+              %span Phone
 
     %fieldset.business_type
       %legend
@@ -112,13 +104,13 @@
               %span Other
 
       .clearfix.private_corp_type
-        = f.label 'Private Corporation Type*'
+        = f.label 'Private Corporation Type'
         .input= f.text_field :private_corp_type
       .clearfix.market_symbol
-        = f.label 'Market Symbol*'
+        = f.label 'Market Symbol'
         .input= f.text_field :market_symbol
       .clearfix.other_field
-        = f.label 'Please enter other type here:*'
+        = f.label 'Business Type:'
         .input= f.text_field :other_type
 
     %fieldset.business_type
@@ -138,7 +130,6 @@
     $('.other_field').hide();
     $('.private_corp_type').hide();
     $('.market_symbol').hide();
-    $(".other_contact_field").hide();
 
     $('.other_corp').click(function(){
       if ($(this).attr("checked") == "checked") {
@@ -179,11 +170,4 @@
       $(".market_symbol").fadeOut("slow");
     });
 
-    $('.other_contact_method').click(function(){
-      $(".other_contact_field").fadeIn("slow");
-    });
-
-    $('.contact_no_field').click(function(){
-      $(".other_contact_field").fadeOut("slow");
-    });
   });
