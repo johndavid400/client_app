@@ -61,7 +61,6 @@ class ClientApplicationsController < ApplicationController
     update_state
   end
 
-
   def destroy
     @client_application = ClientApplication.find(params[:id])
     @client_application.destroy

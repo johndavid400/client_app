@@ -1,0 +1,192 @@
+%h1= @client_application.business_name
+
+%h3
+  Application Progress:
+  = "#{@client_application.progress}%"
+= progress_bar(@client_application.progress, :tiny => true,:color => "blue") 
+%p
+= link_to 'Back', root_path
+|
+= link_to 'Edit', edit_client_application_path(@client_application)
+|
+= link_to 'Print', '#', onclick: 'window.print();return false;'
+%p
+
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th
+        %h3.header Client Information:
+  %tbody
+    %tr
+      %th Business Name
+      %td= @client_application.business_name
+    %tr
+      %th DBA Name
+      %td= @client_application.dba_name
+    %tr
+      %th Parent Company
+      %td= @client_application.parent_company
+    %tr
+      %th Taxpayer ID
+      %td= @client_application.taxpayer_id_number
+    %tr
+      %th Years in Business
+      %td= @client_application.years_in_business
+    %tr
+      %th Number of Employees
+      %td= @client_application.number_of_employees
+    %tr
+      %th Business Website
+      %td= @client_application.business_website
+    %tr
+      %th Contact Method
+      %td= @client_application.contact_by_email
+    %tr
+      %th Business Address
+      %td= @client_application.business_address
+    %tr
+      %th City
+      %td= @client_application.city
+    %tr
+      %th State
+      %td= State.find(@client_application.state_id).name
+    %tr
+      %th Zip code
+      %td= @client_application.zip
+    %tr
+      %th Billing Address
+      %td= @client_application.billing_address
+    %tr
+      %th Phone number
+      %td= @client_application.phone_number
+    %tr
+      %th Email
+      %td= @client_application.email
+
+
+%table.bordered-table.zebra-striped
+  %thead
+    %tr
+      %th
+        %h3.header File Attachments:
+  %tbody
+    - @client_application.attachments.each do |attachment|
+      %tr
+        %th= attachment.description.titleize
+        %td
+          - if attachment.document_file_name
+            = link_to attachment.document_file_name, attachment.document.url
+
+
+
+- if !@client_application.principal_information_forms.empty? 
+  %table.bordered-table.zebra-striped
+    %thead
+      %tr
+        %th
+          %h3.header Principal Information:
+    %tbody
+      %tr
+        %th Name
+        %td= @client_application.principal_information_forms.first.name
+      %tr
+        %th Alternate Name
+        %td= @client_application.principal_information_forms.first.alternate_name
+      %tr
+        %th SSN
+        %td= @client_application.principal_information_forms.first.ssn
+      %tr
+        %th DOB
+        %td= @client_application.principal_information_forms.first.dob
+      %tr
+        %th Driver License Number
+        %td= @client_application.principal_information_forms.first.dl_number
+      %tr
+        %th DL State
+        %td= @client_application.principal_information_forms.first.dl_state
+      %tr
+        %th Street Address
+        %td= @client_application.principal_information_forms.first.street_address
+      %tr
+        %th City
+        %td= @client_application.principal_information_forms.first.city
+      %tr
+        %th State
+        %td= @client_application.principal_information_forms.first.state
+      %tr
+        %th County
+        %td= @client_application.principal_information_forms.first.county
+      %tr
+        %th Previous Street Address
+        %td= @client_application.principal_information_forms.first.prev_street_address
+      %tr
+        %th Previous City
+        %td= @client_application.principal_information_forms.first.prev_city
+      %tr
+        %th Previous State
+        %td= @client_application.principal_information_forms.first.prev_state
+      %tr
+        %th Previous County
+        %td= @client_application.principal_information_forms.first.prev_county
+      %tr
+        %th Position
+        %td= @client_application.principal_information_forms.first.position
+      %tr
+        %th Company
+        %td= @client_application.principal_information_forms.first.company
+      %tr
+        %th Years with Company
+        %td= @client_application.principal_information_forms.first.years_with_company
+      %tr
+        %th Previous Employer
+        %td= @client_application.principal_information_forms.first.prev_employer
+      %tr
+        %th Date
+        %td= @client_application.principal_information_forms.first.date
+      %tr
+        %th Company
+        %td= @client_application.principal_information_forms.first.street_address
+
+- if !@client_application.banking_information_forms.empty? 
+  %table.bordered-table.zebra-striped
+    %thead
+      %tr
+        %th
+          %h3.header Banking Information:
+    %tbody
+      %tr
+        %th Bank Name
+        %td= @client_application.banking_information_forms.first.bank_name
+      %tr
+        %th Bank Address
+        %td= @client_application.banking_information_forms.first.bank_address
+      %tr
+        %th Contact Person
+        %td= @client_application.banking_information_forms.first.contact_person
+      %tr
+        %th Phone Number
+        %td= @client_application.banking_information_forms.first.phone_number
+      %tr
+        %th Previous Bank
+        %td= @client_application.banking_information_forms.first.previous_bank
+      %tr
+
+- if @client_application.litigation_information?
+  %table.bordered-table.zebra-striped
+    %thead
+      %tr
+        %th
+          %h3.header Litigation Information:
+    %tbody
+      %tr
+        %th Litigation
+        %td
+          - if !@client_application.litigation_description.nil?
+            = "Yes"
+          - else
+            = "No"
+      %tr
+        %th Litigation description
+        %td=h truncate(@client_application.litigation_description, :length => 100)
+

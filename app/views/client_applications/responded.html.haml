@@ -1,76 +1,4 @@
-%center
-  %h2 Responded
-  %h1 Isotope11 - The client has finished their application:
-  %h3
-    Please contact
-    = @client_application.business_name 
-    to follow up:
-    = @client_application.phone_number
-
-%table.bordered-table.zebra-striped
-  %thead
-    %tr
-      %th Client Information
-  %tbody
-    - if @client_application.business_name != ""
-      %tr
-        %th Business Name
-        %td= @client_application.business_name
-    - if @client_application.dba_name != ""
-      %tr
-        %th DBA Name
-        %td= @client_application.dba_name
-    - if @client_application.parent_company != ""
-      %tr
-        %th Parent Company
-        %td= @client_application.parent_company
-    - if @client_application.taxpayer_id_number != ""
-      %tr
-        %th Taxpayer ID
-        %td= @client_application.taxpayer_id_number
-    - if !@client_application.years_in_business.nil?
-      %tr
-        %th Years in Business
-        %td= @client_application.years_in_business
-    - if !@client_application.number_of_employees.nil?
-      %tr
-        %th Number of Employees
-        %td= @client_application.number_of_employees
-    - if @client_application.business_website != ""
-      %tr
-        %th Business Website
-        %td= @client_application.business_website
-    - if @client_application.contact_by_email?
-      %tr
-        %th Contact Method
-        %td= @client_application.contact_by_email
-    - if @client_application.business_address != ""
-      %tr
-        %th Business Address
-        %td= @client_application.business_address
-    - if @client_application.city != ""
-      %tr
-        %th City
-        %td= @client_application.city
-    %tr
-      %th State
-      %td= State.find(@client_application.state_id).name
-    - if @client_application.zip != ""
-      %tr
-        %th Zip code
-        %td= @client_application.zip
-    - if @client_application.billing_address != ""
-      %tr
-        %th Billing Address
-        %td= @client_application.billing_address
-    - if @client_application.phone_number != ""
-      %tr
-        %th Phone number
-        %td= @client_application.phone_number
-    - if @client_application.email != ""
-      %tr
-        %th Email
-        %td= @client_application.email
+= render 'show_page', :client_application => @client_application
 
 %center
   %h2
@@ -81,6 +9,6 @@
       %p
       %span
         = f.radio_button :returned, 0
-        = 'Mark Application as complete'
+        = 'Mark Application as complete (send to Xrono)'
       %p
       = f.submit "Submit"

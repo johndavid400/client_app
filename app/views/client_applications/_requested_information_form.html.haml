@@ -1,6 +1,10 @@
 %fieldset
   = f.fields_for :attachments, :html => { :multipart => true } do |a|
-    - if a.object[:document_file_name].nil?
+    - if a.object[:document_file_name].present?
+      .clearfix
+        = a.label a.object[:description]
+        %h4.input= a.object[:document_file_name]
+    - else
       .clearfix
         = a.label a.object[:description]
         .input= a.file_field :document
