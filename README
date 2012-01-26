@@ -1,11 +1,37 @@
-# Isotope11 Client Application
+# Client Application
 
 This program is intended to create and track new client applications from our website.
 
-Not only will this program create applications, but estimate, track, and manage the development process.
+The "client" can visit the website and begin a new application. The initial application form is used to gather some information about clients that have requested work from your company.
+Once the client submits the initial form, it enters a state machine to monitor its progress - the typical workflow is as follows:
 
+1. Application is filled out by client.
+2. once submitted, the admin may request information from the client
+3. once requested, the client may then respond to the requested information
+4. once responded, the admin may either mark the applications as complete OR request additional information (which returns the application to the submitted state)
 
-Before Deploy:
+During each step, an email is sent to the appropriate party, notifying them that action is required on their part.
+Additionally, a user account is setup in the app once the initial application is submitted, so the user can sign in to complete their application.
+Upon being marked as complete, the app makes an API call to Xrono (project management app) to create a client with contact information.
 
+Testing is done using Cucumber and Rspec.
+
+To Setup:
+
+clone git repository
+cd client_app (agree to create/use a new rvm gemset if using rvm)
+gem install bundler
+bundle
+rake db:create
+rake db:migrate
+rake db:seed
+rails s
+
+To run Tests:
+rake db:test:prepare
+
+-----------------
+
+TODO Before Deploy:
 change email addresses in mailer
-
+change api location for xrono
