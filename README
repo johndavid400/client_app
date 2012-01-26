@@ -3,3 +3,9 @@
 This program is intended to create and track new client applications from our website.
 
 Not only will this program create applications, but estimate, track, and manage the development process.
+
+
+Before Deploy:
+
+change email addresses in mailer
+
