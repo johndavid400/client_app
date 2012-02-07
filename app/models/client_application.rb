@@ -58,14 +58,7 @@ class ClientApplication < ActiveRecord::Base
   def after_complete
     Client.completed_email(self).deliver
     # send json request to Xrono to create a Client
-    create_in_xrono
-  end
-
-  def create_in_xrono
-    # send the information in the proper format for Xrono to create a client and contact info
-    send_to_url = "http://192.168.1.83:3000"
-    conn = Faraday.new(:url => send_to_url)
-    response = conn.post("/api/v1/clients.json", {"client" => {"name" => self.business_name, "status" => "Inactive"}, "contact" => {"first_name" => self.first_name, "last_name" => self.last_name, "email_address" => self.email, "phone_number" => self.phone_number, "street" => self.business_address, "city" => self.city, "state" => self.state.name, "zip" => self.zip, "receives_email" => self.contact_by_email}})
+    XronoImport.new.send_client(self)
   end
 
 end
