@@ -2,13 +2,10 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 gem 'pg'
-#gem 'mysql2'
-#gem 'sqlite3'
 
 gem 'therubyracer'
 gem 'execjs'
 gem 'haml'
-gem 'haml-rails', :group => :development
 gem 'simple_form'
 gem 'state_machine'
 gem "paperclip", "~> 2.4"
@@ -17,8 +14,8 @@ gem 'devise'
 gem 'attr_encrypted'
 gem 'css3-progress-bar-rails'
 gem 'jquery-rails'
-gem 'aws-s3'
 gem 'faraday'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -26,18 +23,14 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+group :development do
+  gem 'capistrano'
+  gem 'haml-rails'
+end
 
 group :test do
   # Pretty printed test output
   gem 'ruby-debug19'
-  gem 'mysql2'
-#  gem 'sqlite3'
-  gem 'turn', '0.8.2', :require => false
   gem 'database_cleaner'
   gem 'rails3-generators' #mainly for factory_girl & simple_form at this point
   gem 'rspec-rails'
@@ -49,4 +42,3 @@ group :test do
   gem 'simplecov'
 end
 
-gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
