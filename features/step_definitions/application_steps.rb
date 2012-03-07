@@ -15,12 +15,14 @@ Given /^I fill out the application$/ do
   fill_in 'client_application_billing_address', with: '900 Forest Ave.'
   fill_in 'client_application_city', with: 'Beverly Hills'
   fill_in 'client_application_zip', with: '90210'
+  choose 'client_application_business_type_non_profit'
+  fill_in 'client_application_revenue', with: '$100k'
 end
 
 Given /^an application exists with email "([^"]*)" and name "([^"]*)"$/ do |email, name|
   alabama = State.create name: "Alabama"
   @user = FactoryGirl.create :user, email: email
-  @application = FactoryGirl.create :client_application, email: email, business_name: name, first_name: "Wiley", last_name: "Cyote", user: @user, phone_number: "555-555-5555", years_in_business: "2", number_of_employees: "2", business_address: "200 street", billing_address: "300 street", city: "Topeka", zip: "20020", state: alabama
+  @application = FactoryGirl.create :client_application, email: email, business_name: name, first_name: "Wiley", last_name: "Cyote", user: @user, phone_number: "555-555-5555", years_in_business: "2", number_of_employees: "2", business_address: "200 street", billing_address: "300 street", city: "Topeka", zip: "20020", state: alabama, business_type: "Private", revenue: "$1 billion"
   @application.submit!
 end
 
