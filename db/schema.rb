@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125172830) do
+ActiveRecord::Schema.define(:version => 20120307210740) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "client_application_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20120125172830) do
     t.boolean  "returned"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "revenue"
   end
 
   create_table "principal_information_forms", :force => true do |t|
