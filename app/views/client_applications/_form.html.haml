@@ -34,6 +34,9 @@
         = f.label 'Number of Employees*'
         .input= f.text_field :number_of_employees, :class => "text"
       .clearfix
+        = f.label 'Most recent fiscal year revenue*'
+        .input= f.text_field :revenue, :class => "text"
+      .clearfix
         = f.label 'DBA Name'
         .input= f.text_field :dba_name 
       .clearfix
@@ -112,6 +115,11 @@
       .clearfix.other_field
         = f.label 'Business Type:'
         .input= f.text_field :other_type
+
+    %fieldset.business_info
+      .clearfix
+        = f.label 'Project Description/Scope'
+        .input= f.text_area :project_description
 
     %fieldset.business_type
       %legend

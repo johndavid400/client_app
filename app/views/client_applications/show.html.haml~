@@ -38,8 +38,11 @@
       %th Business Website
       %td= @application.business_website
     %tr
-      %th Contact Method
-      %td= @application.contact_method
+      %th Preferred Contact Method
+      - if @application.contact_method?
+        %td Phone
+      - else
+        %td Email
     %tr
       %th Business Address
       %td= @application.business_address
