@@ -3,7 +3,8 @@ class ClientApplication < ActiveRecord::Base
   attr_encrypted :password, :key => 'client_app'
 
   validates_uniqueness_of :email, :business_name
-  validates_presence_of :business_name, :first_name, :last_name, :email, :phone_number, :years_in_business, :number_of_employees, :business_address, :billing_address, :city, :zip, :business_type, :revenue, :password
+  validates_presence_of :business_name, :first_name, :last_name, :email, :phone_number, :years_in_business, :number_of_employees, :business_address, :billing_address, :city, :zip, :business_type, :revenue
+  validates_presence_of :password, :on => :create
   validates_format_of :email, :with => /(\S+)@(\w+.\w+)/
 
   belongs_to :user
