@@ -20,7 +20,7 @@ class ClientApplicationsController < ApplicationController
     if @client_application.save
       @client_application.submit!
       @client_application.update_attributes(:progress => 25)
-      @user = User.new(:email => @client_application.email, :password => "password", :password_confirmation => "password")
+      @user = User.new(:email => @client_application.email, :password => @client_application.password, :password_confirmation => @client_application.password )
       if @user.save
         # would like to refactor here!!
         @client_application.update_attributes(:user_id => @user.id)
