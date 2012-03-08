@@ -16,6 +16,9 @@ describe ClientApplication do
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:zip) }
 
+  it { should validate_presence_of(:business_type) }
+  it { should validate_presence_of(:revenue) }
+
   it { should_not allow_value("tom.tom.com").for(:email) }
   it { should allow_value("tom@tom.com").for(:email) }
 

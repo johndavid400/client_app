@@ -32,7 +32,7 @@ RSpec.configure do |config|
   config.before :each do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
-    ClientApplication.create!(:email => 'john@john.com', :business_name => "John's plumbing", :first_name => "John", :last_name => "Smith", :phone_number => "205-867-5309", :years_in_business => "12", :number_of_employees => "3", :business_address => "123 Tiny street", :billing_address => "100 City Street", :city => "Birmingham", :zip => "35888")
+    ClientApplication.create!(:email => 'john@john.com', :business_name => "John's plumbing", :first_name => "John", :last_name => "Smith", :phone_number => "205-867-5309", :years_in_business => "12", :number_of_employees => "3", :business_address => "123 Tiny street", :billing_address => "100 City Street", :city => "Birmingham", :zip => "35888", :revenue => "$100k", :business_type => "Private")
   end
 
   config.after do
