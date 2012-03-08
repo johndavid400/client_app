@@ -58,17 +58,17 @@ Feature: Application
     When I follow "Delete"
     Then I should see "Client Application successfully deleted"
   
-  Scenario: An admin should be able to finish an application
-    Given I am on an application's edit page
-    And I check "client_application_business_license"
-    And I click "Submit"
-    When I follow "Edit"
-    And I should see "Business license"
-    When I click "Submit"
-    Then I follow "Edit"
-    Then I choose "client_application_returned_0"
-    And I click "Submit"
-    Then I should see "completed"
+#  Scenario: An admin should be able to finish an application
+#    Given I am on an application's edit page
+#    And I check "client_application_business_license"
+#    And I click "Submit"
+#    When I follow "Edit"
+#    And I should see "Business license"
+#    When I click "Submit"
+#    Then I follow "Edit"
+#    Then I choose "client_application_returned_0"
+#    And I click "Submit"
+#    Then I should see "completed"
 
   Scenario: An admin should be able to return an application
     Given I am on an application's edit page
